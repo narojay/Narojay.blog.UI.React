@@ -43,7 +43,7 @@ const Post = (props) => {
     getConfigsByProductId(postId).then((res) => {
       setData(res.data)
     })
-  }, [])
+  }, [props.match.params])
   //替换所有的换行符
   console.log(data.content)
   let html1 = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")

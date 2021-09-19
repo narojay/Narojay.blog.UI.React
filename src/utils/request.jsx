@@ -7,7 +7,7 @@ export function getConfigsByProductId(postId) {
 
 export function AddPostApi(title, postContent) {
   return http
-    .post("Post/add", {
+    .post("post/add", {
       id: 0,
       title: title,
       content: postContent,
@@ -19,4 +19,13 @@ export function AddPostApi(title, postContent) {
     .then((x) => {
       console.log(x.data)
     })
+}
+
+export function GetPostList(pageIndex, pageSize) {
+  return http
+    .post("post/posts", {
+      pageIndex: pageIndex,
+      pageSize: pageSize
+    })
+    .then((x) => x.data)
 }

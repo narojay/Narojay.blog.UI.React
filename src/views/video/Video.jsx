@@ -1,17 +1,12 @@
 import { Layout, Menu, Breadcrumb } from "antd"
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined
-} from "@ant-design/icons"
+import { FileOutlined, TeamOutlined, UserOutlined } from "@ant-design/icons"
 import React, { useState } from "react"
 import { Route } from "react-router-dom"
 import Post from "../Post"
 import AddPost from "../AddPost"
 import LeaveMessage from "../LeaveMessage"
 import Order from "../../App"
+import PostList from "../PostList"
 
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
@@ -40,15 +35,9 @@ function Video(props) {
           mode="inline"
           onClick={aa}
         >
-          <Menu.Item key="echartarea/1" icon={<PieChartOutlined />}>
-            Option 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            y Option 2
-          </Menu.Item>
-          <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+          <SubMenu key="sub1" icon={<UserOutlined />} title="Narojay's Blog">
             <Menu.Item key="leavemessage">留言板</Menu.Item>
-            <Menu.Item key="post">博客文章</Menu.Item>
+            <Menu.Item key="posts">博客文章</Menu.Item>
             <Menu.Item key="addpost">博客发布</Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
@@ -73,6 +62,7 @@ function Video(props) {
             style={{ padding: 24, minHeight: 360 }}
           >
             <Route path="/video/echartarea/1" component={Order} />
+            <Route path="/video/posts" component={PostList} />
             <Route path="/video/post/:postId" component={Post} />
             <Route path="/video/addpost" component={AddPost} />
             <Route path="/video/leavemessage" component={LeaveMessage} />
