@@ -1,0 +1,56 @@
+.login-container {
+  margin: 200px auto;
+  width: 600px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 0 20px;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+}
+.ttt {
+  background: url("./pexels-christian-heitz-842711.jpg") 0 / cover fixed;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
+.fff {
+  background: url("./pexels-visually-us-1643409.jpg") 0 / cover fixed;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+body #root {
+  height: 100%;
+  width: 100%;
+}
+#test {
+  height: 100%;
+  width: 100%;
+}
+.login {
+  padding: 100px 0;
+}
+
+.btn-flex {
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-size: 20px;
+}

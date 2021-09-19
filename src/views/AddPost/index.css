@@ -1,0 +1,11 @@
+.marked {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  border: 1px solid;
+}
+.input-region,
+.show-region {
+  flex: 1;
+  padding: 20px;
+  font-size: 20px;
+}
