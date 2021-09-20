@@ -13,7 +13,7 @@ const PostList = (props) => {
   const GetDetail = (id) => {
     console.log(id)
     console.log(props)
-    props.history.push("/video/post/" + id)
+    props.history.push("post/" + id)
   }
   const list = state.map((x) => (
     <li key={x.id} onClick={() => GetDetail(x.id)}>

@@ -15,3 +15,7 @@
 .videoContent {
   padding: 20px;
 }
+
+.image-limit img {
+  width: 100%;
+}

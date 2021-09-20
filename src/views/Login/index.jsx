@@ -20,15 +20,6 @@ class Login extends Component {
     this.setState({ urls: tsIcon2 })
   }
 
-  // handClick = () => {
-  //   console.log(this.state)
-  //   http.get("test").then((res) => {
-  //     console.log(res.data.data.age)
-  //     sessionStorage.setItem("hj", res.data.data.age)
-  //     message.success("登录成功")
-  //     this.props.history.push("/video/test1")
-  //   })
-  // }
   changeTheme = () => {
     let newIndex = this.state.index
     if (newIndex >= 2) {
