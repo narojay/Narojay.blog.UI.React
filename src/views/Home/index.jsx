@@ -40,6 +40,9 @@ function Video(props) {
         <SubMenu key="sub1" icon={<UserOutlined />} title="后台管理">
           <Menu.Item key="addpost">博客发布</Menu.Item>
         </SubMenu>
+        <Menu.Item key="aboutme" icon={<UserOutlined />}>
+          关于我
+        </Menu.Item>
       </Menu>
       <Layout>
         <Content style={{ margin: "0 auto", width: "1000px" }}>

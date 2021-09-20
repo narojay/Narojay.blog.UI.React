@@ -1,3 +1,5 @@
+import { Comment, Avatar, Tooltip } from "antd"
+import moment from "moment"
 import React, { useState } from "react"
 import http from "../../utils/http"
 
@@ -11,7 +13,24 @@ const LeaveMessage = () => {
       })
   }, [])
   console.log(data.data)
-  const list = data.data.map((x) => <div key={x.id}>{x.content}</div>)
-  return <div>1{list}</div>
+  const list = data.data.map((x) => (
+    <Comment
+      key={x.id}
+      author="Han Solo"
+      avatar={
+        <Avatar
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          alt="Han Solo"
+        />
+      }
+      content={<p>{x.content}</p>}
+      datetime={
+        <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
+          <span>{moment().fromNow()}</span>
+        </Tooltip>
+      }
+    />
+  ))
+  return <div>{list}</div>
 }
 export default LeaveMessage

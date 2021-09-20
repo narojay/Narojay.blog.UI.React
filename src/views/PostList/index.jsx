@@ -1,3 +1,4 @@
+import { List, Avatar } from "antd"
 import React, { useEffect, useState } from "react"
 import { GetPostList } from "../../utils/request"
 
@@ -15,12 +16,24 @@ const PostList = (props) => {
     console.log(props)
     props.history.push("post/" + id)
   }
-  const list = state.map((x) => (
-    <li key={x.id} onClick={() => GetDetail(x.id)}>
-      {x.title}
-    </li>
-  ))
-  return list
+
+  const list1 = (
+    <List
+      itemLayout="horizontal"
+      dataSource={state}
+      renderItem={(item) => (
+        <List.Item>
+          <List.Item.Meta
+            title={item.title}
+            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            onClick={() => GetDetail(item.id)}
+            key={item.id}
+          />
+        </List.Item>
+      )}
+    />
+  )
+  return list1
 }
 
 export default PostList
