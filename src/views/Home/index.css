@@ -1,21 +1,24 @@
-.topNav {
-  height: 50px;
-  background-color: #cfdefd;
-}
-.topNav ul {
+.home-top-img {
+  min-height: calc(100vh);
+  color: #fff;
   display: flex;
-  margin: 0px;
-  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
 }
-.topNav li {
-  padding: 10px;
-  text-align: center;
-  list-style: none;
+.home-top-title {
+  font-size: 56px;
+  color: currentColor;
+  font-weight: 700;
 }
-.videoContent {
-  padding: 20px;
+.home-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.image-limit img {
-  width: 100%;
+.home-main {
+  width: calc(100% - 100px);
+  height: 100vh;
+  background-color: yellowgreen;
 }

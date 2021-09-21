@@ -45,8 +45,10 @@ const Post = (props) => {
     })
   }, [props.match.params])
   //替换所有的换行符
-  let html1 = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
-  const result = <div dangerouslySetInnerHTML={{ __html: html1 }}></div>
+  let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
+  const result = (
+    <div className="img-limit" dangerouslySetInnerHTML={{ __html: html }}></div>
+  )
   return result
 }
 

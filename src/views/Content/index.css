@@ -1,0 +1,10 @@
+.content-box {
+  min-height: calc(100vh - 120px);
+}
+.content-center {
+  /* min-height: calc(100vh - 60px - 120px); */
+  min-height: calc(100vh - 120px);
+  /* width: 1300px; */
+  width: 1200px;
+  margin: auto;
+}

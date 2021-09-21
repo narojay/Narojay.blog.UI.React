@@ -1,13 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import reportWebVitals from "./reportWebVitals"
-import { BrowserRouter, Switch } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import AuthRoute from "./routes/AuthRoute.jsx"
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <AuthRoute />
-    </Switch>
+    <AuthRoute />
   </BrowserRouter>,
   document.getElementById("root")
 )

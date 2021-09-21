@@ -1,4 +1,4 @@
-import { List, Avatar } from "antd"
+import { List } from "antd"
 import React, { useEffect, useState } from "react"
 import { GetPostList } from "../../utils/request"
 
@@ -19,6 +19,10 @@ const PostList = (props) => {
 
   const list1 = (
     <List
+      style={{
+        textAlign: "center",
+        margin: "0 auto"
+      }}
       itemLayout="horizontal"
       dataSource={state}
       renderItem={(item) => (
