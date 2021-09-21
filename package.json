@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/react": "^17.0.16",
+    "animate.css": "^4.1.1",
     "antd": "^4.16.10",
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
@@ -50,6 +51,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.14.5"
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.0.0"
   }
 }

@@ -20,7 +20,6 @@ input {
   border-radius: 0;
 }
 body {
-  overflow-y: overlay;
   width: 100% !important;
 }
 html {

@@ -5,7 +5,7 @@ import Nav from "../views/Nav"
 import Content from "../views/Content"
 import Footer from "../views/Footer"
 import "./index.css"
-import bgcImage from "../utils/270187.jpg"
+import bgcImage from "../utils/3.jpg"
 export default class AuthRoute extends Component {
   render() {
     return (
