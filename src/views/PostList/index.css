@@ -2,16 +2,20 @@
   height: 220px;
   border-radius: 20px;
   margin-bottom: 20px;
-  overflow: hidden;
   user-select: none;
   transition: all 0.2s;
+  width: 100%;
 }
 .article-item-title {
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-size: 28px;
   font-weight: 700;
   color: #fff;
+}
+::-webkit-scrollbar {
+  display: none;
 }

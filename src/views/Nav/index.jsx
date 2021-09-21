@@ -7,7 +7,8 @@ const Nav = (props) => {
   const navItem = [
     { id: 0, name: "文章", to: "/posts" },
     { id: 1, name: "留言板", to: "/leavemessage" },
-    { id: 2, name: "关于我", to: "/aboutme" }
+    { id: 2, name: "聒噪", to: "/leavemessage" },
+    { id: 3, name: "关于我", to: "/aboutme" }
   ]
   // const secondNavItem = [
   //   { id: 1, name: "找文章", to: "/articles" },
@@ -21,8 +22,8 @@ const Nav = (props) => {
   const nacList = (
     <div>
       <nav className="nav-pc theme-color">
-        <div className="nav-content">
-          <NavLink to="/home" className="home-btn common-hover">
+        <div className="nav-content animate__animated animate__bounceInRight">
+          <NavLink to="/home" className="nav-btn common-hover">
             Narojay
           </NavLink>
           {navItem.map((item) => (

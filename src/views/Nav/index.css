@@ -1,30 +1,10 @@
-/* .topNav {
-  height: 50px;
-  background-color: #cfdefd;
-}
-.topNav ul {
-  display: flex;
-  margin: 0px;
-  padding: 0px;
-}
-.topNav li {
-  padding: 10px;
-  text-align: center;
-  list-style: none;
-}
-.videoContent {
-  padding: 20px;
-}
-
-.image-limit img {
-  width: 100%;
-} */
-
 .nav-pc {
   height: 80px;
   width: 100%;
 }
-
+.theme-color {
+  background-color: rgba(35, 35, 44, 1);
+}
 .nav-content {
   display: flex;
 
@@ -45,13 +25,13 @@
   margin-right: 20px;
   border-radius: 14px;
   color: #fff;
-  transition: all 2s;
+  transition: all 0.2s;
   user-select: none;
 }
-/* 颜色
 .nav-btn:hover,
 .home-btn:hover,
 .admin-btn:hover,
 .articels-second-item:hover {
-  color: #fff;
-} */
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -3,7 +3,3 @@
   background-attachment: fixed;
   overflow: auto;
 }
-
-.Blog-box::-webkit-scrollbar {
-  display: none; /* Chrome Safari */
-}

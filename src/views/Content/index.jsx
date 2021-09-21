@@ -12,6 +12,7 @@ const Content = () => {
     <div className="content-box">
       <div className="content-center">
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/posts" component={PostList} />
           <Route path="/leavemessage" component={LeaveMessage} />
