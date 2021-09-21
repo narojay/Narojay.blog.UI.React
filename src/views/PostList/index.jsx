@@ -1,6 +1,8 @@
-import { List } from "antd"
 import React, { useEffect, useState } from "react"
 import { GetPostList } from "../../utils/request"
+import "./index.css"
+import "animate.css/animate.min.css"
+import { withRouter } from "react-router"
 
 const PostList = (props) => {
   const [state, setstate] = useState([])
@@ -18,26 +20,20 @@ const PostList = (props) => {
   }
 
   const list1 = (
-    <List
-      style={{
-        textAlign: "center",
-        margin: "0 auto"
-      }}
-      itemLayout="horizontal"
-      dataSource={state}
-      renderItem={(item) => (
-        <List.Item>
-          <List.Item.Meta
-            title={item.title}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            onClick={() => GetDetail(item.id)}
-            key={item.id}
-          />
-        </List.Item>
-      )}
-    />
+    <div>
+      {state.map((x) => (
+        <div key={x.id} className="animate__animated animate__pulse">
+          <div
+            onClick={() => GetDetail(x.id)}
+            className="article-item theme-color"
+          >
+            <div className="article-item-title">{x.title}</div>
+          </div>
+        </div>
+      ))}
+    </div>
   )
   return list1
 }
 
-export default PostList
+export default withRouter()

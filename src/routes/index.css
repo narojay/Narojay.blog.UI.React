@@ -1,6 +1,9 @@
 .Blog-box {
-  min-height: calc(100vh - 120px);
+  min-height: 100vh;
   background-attachment: fixed;
-  background-size: 100% 100%;
-  position: relative;
+  overflow: auto;
+}
+
+.Blog-box::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
 }
