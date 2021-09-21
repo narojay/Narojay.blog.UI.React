@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { GetPostList } from "../../utils/request"
 import "./index.css"
 import "animate.css/animate.min.css"
-import { withRouter } from "react-router"
+import { withRouter } from "react-router-dom"
 
 const PostList = (props) => {
   const [state, setstate] = useState([])
@@ -36,4 +36,4 @@ const PostList = (props) => {
   return list1
 }
 
-export default withRouter()
+export default withRouter(PostList)
