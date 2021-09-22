@@ -3,23 +3,20 @@ import { GetPostList } from "../../utils/request"
 import "./index.css"
 import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
-
 const PostList = (props) => {
+  const { currentPage, pageSize, setTotalCount } = props
   const [state, setstate] = useState([])
-
+  console.log("----------------" + currentPage + "---------------" + pageSize)
   useEffect(() => {
-    GetPostList(1, 10).then((x) => {
-      console.log(x)
+    GetPostList(currentPage, pageSize).then((x) => {
       setstate(x.data)
+      setTotalCount(x.totalCount)
     })
-  }, [])
+  }, [currentPage, pageSize])
   const GetDetail = (id) => {
-    console.log(id)
-    console.log(props)
     props.history.push("post/" + id)
   }
-
-  const list1 = (
+  const list = (
     <div>
       {state.map((x) => (
         <div key={x.id} className="animate__animated animate__pulse">
@@ -33,7 +30,7 @@ const PostList = (props) => {
       ))}
     </div>
   )
-  return list1
+  return list
 }
 
 export default withRouter(PostList)
