@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PageNav from "../PageNav"
 import PostList from "../PostList"
 import "./index.css"
 const Home = () => {
@@ -8,11 +7,6 @@ const Home = () => {
     pageSize: 10,
     totalCount: 10
   })
-  const setPage = (page) => {
-    state.currentPage = page
-    setstate({ ...state })
-  }
-
   const setTotalCount = (page) => {
     state.totalCount = page
     setstate({ ...state })
