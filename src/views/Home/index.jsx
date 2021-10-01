@@ -32,11 +32,11 @@ const Home = () => {
             pageSize={state.pageSize}
             setTotalCount={setTotalCount}
           />
-          <PageNav
-            currentPage={state.currentPage}
-            totalCount={state.totalCount}
-            setPage={setPage}
-          />
+        </div>
+        <div className="home-aside">
+          <div className="myname theme-color">你好，我是Narojay!</div>
+          <div className="myname theme-color">你好，我是Narojay!</div>
+          <div className="myname theme-color">你好，我是Narojay!</div>
         </div>
       </div>
     </div>

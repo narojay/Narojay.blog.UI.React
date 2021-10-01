@@ -12,7 +12,6 @@ const LeaveMessage = () => {
         setData(res.data)
       })
   }, [])
-  console.log(data.data)
   const list = data.data.map((x) => (
     <Comment
       key={x.id}

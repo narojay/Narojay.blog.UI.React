@@ -3,3 +3,7 @@
   background-attachment: fixed;
   overflow: auto;
 }
+
+.home-aside {
+  width: 260px;
+}

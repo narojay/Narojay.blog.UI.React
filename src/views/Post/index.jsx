@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import hljs from "highlight.js"
 import "./github-dark.css"
 import "./index.css"
+import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 const Post = (props) => {
   const [data, setData] = useState(
@@ -49,7 +50,7 @@ const Post = (props) => {
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
   const result = (
     <div
-      className="img-limit animate__animated animate__backInDown"
+      className="standard-page-box theme-color markdownStyle animate__animated animate__backInDown"
       dangerouslySetInnerHTML={{ __html: html }}
     ></div>
   )

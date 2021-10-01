@@ -1,3 +1,16 @@
-.img-limit img {
+.post-container img {
   width: 100%;
+}
+
+.post-container {
+  background-color: cornsilk;
+}
+
+.standard-page-box {
+  width: 1000px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 40px;
+  font-size: 20px;
+  color: #fff;
 }

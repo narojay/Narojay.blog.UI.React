@@ -14,14 +14,30 @@
 }
 .home-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.home-main {
-  width: calc(100% - 100px);
-  height: 100vh;
 }
 
+.home-main {
+  width: calc(100% - 260px);
+  /* min-height: calc(100vh - 60px - 120px); */
+  min-height: calc(100vh - 120px);
+  padding-right: 20px;
+}
+.home-aside {
+  width: 260px;
+  color: #fff;
+}
+
+.myname {
+  border-radius: 20px;
+  width: 220px;
+  height: 220px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  line-height: 220px;
+  text-align: center;
+}
 .naruto_color {
   color: #ea6a11;
 }

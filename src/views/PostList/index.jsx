@@ -3,22 +3,40 @@ import { GetPostList } from "../../utils/request"
 import "./index.css"
 import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
+import { Pagination } from "antd"
 const PostList = (props) => {
-  const { currentPage, pageSize, setTotalCount } = props
-  const [state, setstate] = useState([])
-  console.log("----------------" + currentPage + "---------------" + pageSize)
+  console.log(props)
+  const [state, setstate] = useState({
+    currentPage: 1,
+    pageSize: 10,
+    totalCount: 0
+  })
+  const [posts, setPosts] = useState([])
   useEffect(() => {
+    const { currentPage, pageSize } = state
     GetPostList(currentPage, pageSize).then((x) => {
-      setstate(x.data)
-      setTotalCount(x.totalCount)
+      const { data, totalCount } = x
+      setstate({ currentPage: 1, pageSize: 10, totalCount: totalCount })
+      setPosts(data)
     })
-  }, [currentPage, pageSize])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const GetDetail = (id) => {
     props.history.push("post/" + id)
   }
+
+  const setPage = (page) => {
+    state.currentPage = page
+    GetPostList(page, state.pageSize).then((x) => {
+      const { data } = x
+      setPosts(data)
+      state.currentPage = page
+      setstate({ ...state })
+    })
+  }
   const list = (
     <div>
-      {state.map((x) => (
+      {posts.map((x) => (
         <div key={x.id} className="animate__animated animate__pulse">
           <div
             onClick={() => GetDetail(x.id)}
@@ -28,6 +46,14 @@ const PostList = (props) => {
           </div>
         </div>
       ))}
+      <div>
+        <Pagination
+          current={state.currentPage}
+          total={state.totalCount}
+          defaultPageSize={10}
+          onChange={(page) => setPage(page)}
+        />
+      </div>
     </div>
   )
   return list
