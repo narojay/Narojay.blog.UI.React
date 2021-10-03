@@ -15,6 +15,9 @@ const Post = (props) => {
       modifyTime: "2021-09-18T15:47:33.298Z",
       userId: 0,
       user: {},
+      isTop: false,
+      likeCount: 0,
+      unlikeCount: 0,
       comments: []
     },
     []

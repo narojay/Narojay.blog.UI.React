@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
     "customize-cra": "^1.0.0",
+    "dotenv-cli": "^4.0.0",
     "echarts": "^5.1.2",
     "echarts-for-react": "^3.0.1",
     "highlight.js": "^11.2.0",
@@ -27,7 +28,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "startdev": "dotenv -e .env.development react-app-rewired start",
+    "startpro": "dotenv -e .env.production react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"

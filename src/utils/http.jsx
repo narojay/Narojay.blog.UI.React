@@ -24,11 +24,10 @@ function hideLoading() {
 // const MOCK_API =
 //   "https://www.fastmock.site/mock/ea8ceeffbca9c66d695f3bc1fead877b/backstage/"
 
-const MOCK_API_Demo = "http://localhost:5000/"
 const whiteApi = []
 
 const http = axios.create({
-  baseURL: MOCK_API_Demo,
+  baseURL: process.env.REACT_APP_API,
   // baseURL: process.env.REACT_APP_ENV === 'mock' ? MOCK_API : window.location.origin,
   // withCredentials: true,
   headers: { isLoading: true },
@@ -61,7 +60,9 @@ http.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-
+console.log("===============================")
+console.log(process.env.REACT_APP_API)
+console.log("===============================")
 http.interceptors.response.use(
   function (response) {
     const data = response

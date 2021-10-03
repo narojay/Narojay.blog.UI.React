@@ -16,8 +16,8 @@ const PostList = (props) => {
     const { currentPage, pageSize } = state
     GetPostList(currentPage, pageSize).then((x) => {
       const { data, totalCount } = x
-      setstate({ currentPage: 1, pageSize: 10, totalCount: totalCount })
       setPosts(data)
+      setstate({ currentPage: 1, pageSize: 10, totalCount: totalCount })
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -50,7 +50,7 @@ const PostList = (props) => {
         <Pagination
           current={state.currentPage}
           total={state.totalCount}
-          defaultPageSize={10}
+          defaultPageSize={state.pageSize}
           onChange={(page) => setPage(page)}
         />
       </div>
