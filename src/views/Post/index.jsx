@@ -11,8 +11,8 @@ const Post = (props) => {
       title: "",
       content: "",
       author: "",
-      creationTime: "2021-09-18T15:47:33.298Z",
-      modifyTime: "2021-09-18T15:47:33.298Z",
+      creationTime: "",
+      modifyTime: "",
       userId: 0,
       user: {},
       isTop: false,
@@ -51,11 +51,18 @@ const Post = (props) => {
   }, [props.match.params])
   //替换所有的换行符
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
+
   const result = (
-    <div
-      className="standard-page-box theme-color markdownStyle animate__animated animate__backInDown"
-      dangerouslySetInnerHTML={{ __html: html }}
-    ></div>
+    <div className="standard-page-box theme-color">
+      <div className="title">{data.title}</div>
+      <div
+        className="markdownStyle animate__animated animate__backInDown"
+        dangerouslySetInnerHTML={{ __html: html }}
+      ></div>
+      <div>
+        支持：{data.likeCount} 反对：{data.unlikeCount}
+      </div>
+    </div>
   )
   return result
 }

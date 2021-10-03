@@ -9,7 +9,8 @@ const PostList = (props) => {
   const [state, setstate] = useState({
     currentPage: 1,
     pageSize: 10,
-    totalCount: 0
+    totalCount: 0,
+    disable: false
   })
   const [posts, setPosts] = useState([])
   useEffect(() => {
@@ -17,7 +18,12 @@ const PostList = (props) => {
     GetPostList(currentPage, pageSize).then((x) => {
       const { data, totalCount } = x
       setPosts(data)
-      setstate({ currentPage: 1, pageSize: 10, totalCount: totalCount })
+      setstate({
+        currentPage: 1,
+        pageSize: 10,
+        totalCount: totalCount,
+        disable: true
+      })
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -34,26 +40,33 @@ const PostList = (props) => {
       setstate({ ...state })
     })
   }
+
+  const page =
+    state.disable === true ? (
+      <Pagination
+        current={state.currentPage}
+        total={state.totalCount}
+        defaultPageSize={state.pageSize}
+        onChange={(page) => setPage(page)}
+      />
+    ) : (
+      <div></div>
+    )
   const list = (
     <div>
-      {posts.map((x) => (
-        <div key={x.id} className="animate__animated animate__pulse">
-          <div
-            onClick={() => GetDetail(x.id)}
-            className="article-item theme-color"
-          >
-            <div className="article-item-title">{x.title}</div>
-          </div>
-        </div>
-      ))}
       <div>
-        <Pagination
-          current={state.currentPage}
-          total={state.totalCount}
-          defaultPageSize={state.pageSize}
-          onChange={(page) => setPage(page)}
-        />
+        {posts.map((x) => (
+          <div key={x.id} className="animate__animated animate__pulse">
+            <div
+              onClick={() => GetDetail(x.id)}
+              className="article-item theme-color"
+            >
+              <div className="article-item-title">{x.title}</div>
+            </div>
+          </div>
+        ))}
       </div>
+      {page}
     </div>
   )
   return list
