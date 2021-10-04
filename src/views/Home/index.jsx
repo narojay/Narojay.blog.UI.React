@@ -51,7 +51,11 @@ const Home = () => {
               <Popover content={QQ} overlayClassName="social-btn-card">
                 <QqOutlined className="cardstyle" />
               </Popover>
-              <a href="https://github.com/narojay" target="_blank">
+              <a
+                href="https://github.com/narojay"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <GithubOutlined className="cardstyle" />
               </a>
             </div>
