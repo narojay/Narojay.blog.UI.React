@@ -5,6 +5,7 @@ import "./github-dark.css"
 import "./index.css"
 import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
+import moment from "moment"
 const Post = (props) => {
   const [data, setData] = useState(
     {
@@ -54,7 +55,14 @@ const Post = (props) => {
 
   const result = (
     <div className="standard-page-box theme-color">
-      <div className="title">{data.title}</div>
+      <div className="title">
+        <div>{data.title}</div>
+        <div className="author">
+          <div>作者：{data.author}</div>
+          {"\u00a0 \u00a0 \u00a0"}
+          <div>时间: {moment(data.creationTime).format("YYYY-MM-DD")} </div>
+        </div>
+      </div>
       <div
         className="markdownStyle animate__animated animate__backInDown"
         dangerouslySetInnerHTML={{ __html: html }}

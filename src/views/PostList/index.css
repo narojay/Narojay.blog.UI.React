@@ -6,16 +6,46 @@
   transition: all 0.2s;
   width: 100%;
 }
+
+.article-item:hover {
+  cursor: pointer;
+}
 .article-item-title {
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  height: 80px;
   font-size: 28px;
   font-weight: 700;
-  color: #fff;
+  color: cadetblue;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+.box {
+  margin-top: 100px;
+}
+.article-item-info {
+  position: relative;
+  height: 60px;
+}
+.tag-left {
+  position: absolute;
+  color: cadetblue;
+  font-size: 20px;
+  left: 20px;
+  top: 80px;
+}
+.tag-left:hover {
+  color: #1890ff;
+  font-weight: bold;
+  transition: all 0.1s;
+}
+.tag-right {
+  position: absolute;
+  color: cadetblue;
+  font-size: 20px;
+  right: 20px;
+  top: 80px;
 }

@@ -28,16 +28,53 @@
 }
 
 .myname {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
   border-radius: 20px;
   width: 220px;
   height: 220px;
+  padding: 20px;
   font-size: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
-  color: #fff;
-  line-height: 220px;
-  text-align: center;
+  background-image: url("https://img-blog.csdnimg.cn/4cca66b39ad249d9a1151bcaa5bc2a37.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .naruto_color {
   color: #ea6a11;
+}
+.card-box {
+  margin-top: 130px;
+  height: 60px;
+  width: 100%;
+  top: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn-card {
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0;
+}
+.QR-code {
+  width: 200px;
+  height: 200px;
+}
+
+.cardstyle {
+  background-color: teal;
+  border-radius: 20px;
+  margin: 0 20px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.cardstyle:hover {
+  font-size: 40px;
+  transition: all 0.3s;
 }

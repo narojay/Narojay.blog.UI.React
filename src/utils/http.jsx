@@ -30,7 +30,7 @@ const http = axios.create({
   baseURL: process.env.REACT_APP_API,
   // baseURL: process.env.REACT_APP_ENV === 'mock' ? MOCK_API : window.location.origin,
   // withCredentials: true,
-  headers: { isLoading: true },
+  headers: { isLoading: false },
 
   timeout: 1000 * 60 * 3
 })
@@ -39,7 +39,6 @@ http.interceptors.request.use(
   function (config) {
     console.log(config)
     if (config.headers.isLoading !== false) {
-      console.log(1)
       showLoading()
     }
     const { url } = config
@@ -60,9 +59,6 @@ http.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-console.log("===============================")
-console.log(process.env.REACT_APP_API)
-console.log("===============================")
 http.interceptors.response.use(
   function (response) {
     const data = response

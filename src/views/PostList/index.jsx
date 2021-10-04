@@ -4,6 +4,7 @@ import "./index.css"
 import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
+import moment from "moment"
 const PostList = (props) => {
   console.log(props)
   const [state, setstate] = useState({
@@ -53,7 +54,7 @@ const PostList = (props) => {
       <div></div>
     )
   const list = (
-    <div>
+    <div className="box">
       <div>
         {posts.map((x) => (
           <div key={x.id} className="animate__animated animate__pulse">
@@ -61,7 +62,15 @@ const PostList = (props) => {
               onClick={() => GetDetail(x.id)}
               className="article-item theme-color"
             >
-              <div className="article-item-title">{x.title}</div>
+              <div className="article-item-info">
+                <div className="article-item-title">{x.title}</div>
+                <div className="article-item-info">
+                  <div className="tag-right">{x.label}</div>
+                  <div className="tag-left">
+                    {moment(x.creationTime).format("YYYY-MM-DD")}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}
