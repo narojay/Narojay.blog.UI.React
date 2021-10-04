@@ -1,4 +1,6 @@
 ## 基于React的博客UI
+  前端：react
+  后端: .net core 
 
 ## 访问地址(域名还在备案中)
 [narojayBlog](http://110.42.221.238)
