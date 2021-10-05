@@ -3,7 +3,7 @@
   后端: .net core 
 
 ## 访问地址(域名还在备案中)
-[narojayBlog](http://110.42.221.238)
+[narojayBlog](http://81.68.243.62/)
 
 ## 页面展示(功能还在开发中)
 ![image](https://user-images.githubusercontent.com/19280886/135816662-963df3f9-3c0d-42ae-9b5c-3c78ed670fd3.png)
