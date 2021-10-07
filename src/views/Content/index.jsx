@@ -1,23 +1,25 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
+import { Redirect, Switch, Route } from "react-router-dom"
 import LeaveMessage from "../LeaveMessage"
 import PostList from "../PostList"
 import AboutMe from "../AboutMe"
 import Post from "../Post"
 import Home from "../Home"
+import AddPost from "../AddPost"
 import "./index.css"
 
-const Content = () => {
+const Content = (props) => {
   return (
     <div className="content-box">
       <div className="content-center">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/posts" component={PostList} />
-          <Route path="/leavemessage" component={LeaveMessage} />
-          <Route path="/aboutme" component={AboutMe} />
-          <Route path="/post/:postId" component={Post} />
+          <Route path="/blog/home" component={Home} />
+          <Route path="/blog/posts" component={PostList} />
+          <Route path="/blog/leavemessage" component={LeaveMessage} />
+          <Route path="/blog/aboutme" component={AboutMe} />
+          <Route path="/blog/post/:postId" component={Post} />
+          <Route path="/blog/addpost" component={AddPost} />
+          <Redirect to="/blog/home" />
         </Switch>
       </div>
     </div>

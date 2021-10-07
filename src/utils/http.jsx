@@ -37,7 +37,6 @@ const http = axios.create({
 
 http.interceptors.request.use(
   function (config) {
-    console.log(config)
     if (config.headers.isLoading !== false) {
       showLoading()
     }
@@ -65,7 +64,7 @@ http.interceptors.response.use(
     if (data.config.headers.isLoading !== false) {
       hideLoading()
     }
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 204) {
       return data
     } else {
       message.error(data.message || data.desc)

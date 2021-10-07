@@ -6,7 +6,6 @@ import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
 const PostList = (props) => {
-  console.log(props)
   const [state, setstate] = useState({
     currentPage: 1,
     pageSize: 10,

@@ -1,0 +1,14 @@
+.admin-main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 400px;
+  height: 300px;
+  background-color: blanchedalmond;
+}

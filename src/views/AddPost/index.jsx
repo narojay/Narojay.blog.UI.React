@@ -9,10 +9,11 @@ const AddPost = () => {
   const [text, setText] = useState("")
   const post = useRef()
   const title = useRef()
+  const label = useRef()
   const OnAddPost = () => {
     const postContent = post.current.innerText
     const titleContent = title.current.value
-    AddPostApi(titleContent, postContent)
+    AddPostApi(titleContent, postContent, label)
   }
   useEffect(() => {
     // 配置highlight
@@ -41,6 +42,7 @@ const AddPost = () => {
     <div>
       <header>基于React的markdown实时编辑器</header>
       标题：<input ref={title}></input>
+      标签：<input ref={label}></input>
       <button onClick={OnAddPost}>发布</button>
       <div className="marked">
         <div
