@@ -35,3 +35,28 @@ export function GetPostList(pageIndex, pageSize) {
 export function loginAsync(username, password) {
   return http.post("login/login?username=" + username + "&password=" + password)
 }
+
+export function getLabelStatistics() {
+  return http.post("post/label_statistics")
+}
+export function getLeaveMessages(pageIndex, pageSize) {
+  return http
+    .post("messageboard/pages", {
+      pageIndex: pageIndex,
+      pageSize: pageSize
+    })
+    .then((x) => {
+      return x.data
+    })
+}
+
+export function pushLeaveMessages(pageIndex, pageSize) {
+  return http
+    .post("messageboard/pages", {
+      pageIndex: pageIndex,
+      pageSize: pageSize
+    })
+    .then((x) => {
+      return x.data
+    })
+}
