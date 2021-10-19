@@ -50,13 +50,21 @@ export function getLeaveMessages(pageIndex, pageSize) {
     })
 }
 
-export function pushLeaveMessages(pageIndex, pageSize) {
+export function pushLeaveMessages(leaveMessage) {
+  const { content, nickName, email, parentId } = leaveMessage
   return http
-    .post("messageboard/pages", {
-      pageIndex: pageIndex,
-      pageSize: pageSize
+    .post("messageboard/add", {
+      id: 0,
+      content: content,
+      nickName: nickName,
+      email: email,
+      parentId: parentId,
+      creationTime: moment().format("YYYY-MM-DD hh:mm:ss")
+    })
+    .catch((x) => {
+      console.log(x)
     })
     .then((x) => {
-      return x.data
+      console.log(x)
     })
 }

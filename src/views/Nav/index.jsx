@@ -3,7 +3,6 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 
 const Nav = (props) => {
-  console.log(props)
   const navItem = [
     { id: 0, name: "文章", to: "/blog/posts" },
     { id: 1, name: "留言板", to: "/blog/leavemessage" },

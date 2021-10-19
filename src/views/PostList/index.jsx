@@ -56,7 +56,7 @@ const PostList = (props) => {
     <div className="box">
       <div>
         {posts.map((x) => (
-          <div key={x.id} className="animate__animated animate__pulse">
+          <div key={x.id} className=" animate__animated animate__slideInLeft">
             <div
               onClick={() => GetDetail(x.id)}
               className="article-item theme-color"

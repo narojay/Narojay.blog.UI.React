@@ -1,0 +1,16 @@
+.leaveMessage-container {
+  padding: 10px 30px;
+  background-color: rgba(35, 35, 44, 1);
+  font-size: 20px;
+  color: white;
+}
+
+.icon-format:hover {
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.icon-format {
+  cursor: pointer;
+  transition: all 0.4s;
+}

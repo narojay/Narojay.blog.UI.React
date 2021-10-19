@@ -49,3 +49,18 @@
   right: 20px;
   top: 80px;
 }
+
+.article-item:hover {
+  background-image: linear-gradient(to right, #25aae1, #40e495);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.article-item:hover::after {
+  left: 120%;
+  transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+  -webkit-transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+}
+.article-item:before {
+  left: 120%;
+  transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+  -webkit-transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+}
