@@ -1,0 +1,15 @@
+.outlineBox {
+  display: flex;
+  width: 100%;
+}
+
+.statistict {
+  display: flex;
+  height: 140px;
+  width: 100%;
+  margin-top: 20px;
+}
+.homelink {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,7 @@
+.MainBox {
+  margin: 20px 20px 20px 20px;
+  /* footer70 Header54 margin-top20 */
+  min-height: calc(100vh - 70px - 54px - 20px);
+  /* overflow: hidden; */
+  /* border-radius: 12px; */
+}

@@ -3,13 +3,40 @@ import React, { useEffect, useState } from "react"
 import { getLeaveMessages, pushLeaveMessages } from "../../utils/request"
 import "./index.css"
 import { EditTwoTone } from "@ant-design/icons"
-import { Form, Input, Modal } from "antd"
+import { Form, Input, Modal, Pagination } from "antd"
 
 const LeaveMessage = () => {
   const [data, setData] = useState([])
   const [visible, setVisible] = React.useState(false)
   const [confirmLoading, setConfirmLoading] = React.useState(false)
   const [parentId, setParentId] = React.useState(0)
+  const [pageDto, setPageDto] = useState({
+    currentPage: 1,
+    pageSize: 10,
+    totalCount: 0,
+    disable: false
+  })
+  const page =
+    pageDto.disable === true ? (
+      <Pagination
+        current={pageDto.currentPage}
+        total={pageDto.totalCount}
+        defaultPageSize={pageDto.pageSize}
+        onChange={(page) => setPage(page)}
+      />
+    ) : (
+      <div></div>
+    )
+
+  const setPage = (page) => {
+    pageDto.currentPage = page
+    getLeaveMessages(page, pageDto.pageSize).then((x) => {
+      const { data } = x
+      setData(data)
+      pageDto.currentPage = page
+      setPageDto({ ...pageDto })
+    })
+  }
   const handleCancel = () => {
     setVisible(false)
   }
@@ -87,7 +114,7 @@ const LeaveMessage = () => {
           }
         ]}
       >
-        <Input.Password />
+        <Input.TextArea />
       </Form.Item>
     </Form>
   )
@@ -95,19 +122,32 @@ const LeaveMessage = () => {
   useEffect(() => {
     getLeaveMessages(1, 10).then((x) => {
       setData(x.data)
+      setPageDto({
+        currentPage: 1,
+        pageSize: 10,
+        totalCount: x.totalCount,
+        disable: true
+      })
     })
   }, [visible])
 
   const leaveMessages = (data, legth) =>
     data.map((x) => (
-      <div key={x.id} className="leaveMessage-container ">
+      <div key={x.id} className="leaveMessage-container">
         {x.id ? (
           <div style={{ paddingLeft: legth }} key={x.id}>
-            来自{x.isMaster ? "管理员" : "男酮"}: {x.nickName} 的留言 #
-            {moment(x.creationTime).format("YYYY-MM-DD hh:mm:ss")}
+            <span className="theme-container">
+              来自{x.isMaster ? "管理员" : "男酮"}: {x.nickName} 的留言 #
+              {moment(x.creationTime).format("YYYY-MM-DD hh:mm:ss")}
+            </span>
             <br />
-            {x.content}
-            <br />
+
+            <Input.TextArea
+              placeholder="Autosize height with minimum and maximum number of lines"
+              autoSize={{ minRows: 2, maxRows: 6 }}
+              value={x.content}
+              style={{ width: "500px", marginLeft: "30px" }}
+            />
             <EditTwoTone
               id={x.id}
               className="icon-format"
@@ -115,15 +155,15 @@ const LeaveMessage = () => {
             />
           </div>
         ) : null}
-        {x.children ? leaveMessages(x.children, legth + 20) : null}
+        {x.children ? leaveMessages(x.children, legth + 10) : null}
       </div>
     ))
 
   return (
-    <div>
+    <div className="leaveMessage">
       <Modal
         forceRender
-        title="Title"
+        title="回复"
         visible={visible}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -131,7 +171,8 @@ const LeaveMessage = () => {
       >
         {pushModel}
       </Modal>
-      {leaveMessages(data, 100)}
+      {leaveMessages(data, 150)}
+      {page}
     </div>
   )
 }

@@ -1,0 +1,33 @@
+.itembox {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.2s;
+  user-select: none;
+  flex: 2;
+}
+
+.itembox:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.home-avatar {
+  position: absolute;
+  left: 20px;
+  height: 110px;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 50%;
+}
+
+.welcomeTitle {
+  font-size: 36px;
+  font-weight: 700;
+  position: absolute;
+  left: 150px;
+  top: 40px;
+}
+
+.username {
+  color: #1890ff;
+}

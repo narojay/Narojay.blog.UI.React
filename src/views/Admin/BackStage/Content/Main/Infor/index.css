@@ -1,0 +1,30 @@
+.infoBox {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.2s;
+  user-select: none;
+  margin-left: 20px;
+  flex: 1;
+  display: flex;
+  align-content: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.infoBox:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.ipbox {
+  color: thistle;
+  font-size: 24px;
+  flex: 2 100%;
+}
+
+.datebox {
+  flex: 1 100%;
+  font-size: 24px;
+}

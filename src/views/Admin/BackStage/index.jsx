@@ -1,14 +1,14 @@
 import React from "react"
+import Content from "./Content"
+import Nav from "./Nav"
+import "./index.css"
 
-function BackStage(props) {
-  const a = () => {
-    localStorage.clear()
-    props.history.push("/admin")
-  }
+const BackStage = (props) => {
   return (
-    <div>
-      123
-      <button onClick={a}>删除</button>
+    <div className="AdminBox">
+      <div className="navBack"></div>
+      <Nav />
+      <Content />
     </div>
   )
 }

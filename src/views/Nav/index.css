@@ -1,6 +1,7 @@
 .nav-pc {
   height: 80px;
   width: 100%;
+  box-shadow: 0 0 30px #000;
 }
 .theme-color {
   background-color: rgba(35, 35, 44, 1);

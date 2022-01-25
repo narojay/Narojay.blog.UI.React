@@ -14,8 +14,8 @@ const Admin = (props) => {
       <Switch>
         {state ? (
           <>
-            <Route path="/admin/backstage" component={BackStage} />
-            <Redirect to="/admin/backstage" />
+            <Route path="/admin" component={BackStage} />
+            <Redirect to="/admin/home" />
           </>
         ) : (
           <>

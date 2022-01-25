@@ -1,6 +1,7 @@
 .leaveMessage-container {
-  padding: 10px 30px;
   background-color: rgba(35, 35, 44, 1);
+  margin: 0 auto;
+  width: 1000px;
   font-size: 20px;
   color: white;
 }
@@ -13,4 +14,16 @@
 .icon-format {
   cursor: pointer;
   transition: all 0.4s;
+}
+.content-container {
+  width: 200px;
+  word-break: break-all;
+  background-color: black;
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.theme-container {
+  display: inline-block;
+  margin-bottom: 20px;
 }

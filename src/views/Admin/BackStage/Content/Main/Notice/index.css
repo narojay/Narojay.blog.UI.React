@@ -1,0 +1,28 @@
+.noticebox {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.2s;
+  user-select: none;
+  margin-left: 20px;
+  flex: 1;
+  display: flex;
+  align-content: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}
+.noticebox:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.content {
+  flex: 1 100%;
+  font-size: 24px;
+}
+
+.test {
+  color: thistle;
+  font-size: 24px;
+  flex: 1 100%;
+}

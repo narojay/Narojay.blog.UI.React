@@ -16,7 +16,7 @@ export function AddPostApi(title, postContent, label) {
       label: label,
       creationTime: moment().format(),
       modifyTime: moment().format(),
-      userId: 1
+      userId: 2
     })
     .then((x) => {
       message.success("添加成功")
@@ -66,5 +66,54 @@ export function pushLeaveMessages(leaveMessage) {
     })
     .then((x) => {
       console.log(x)
+    })
+}
+
+export const getUserIp = () => {
+  return http
+    .get("User/ip")
+    .catch((x) => {
+      console.log(x)
+    })
+    .then((x) => {
+      return x.data
+    })
+}
+
+export const getadminNotice = () => {
+  return http
+    .get("notice/message")
+    .catch((x) => {
+      console.log(x)
+    })
+    .then((x) => {
+      return x.data
+    })
+}
+
+export const getPostAdmin = (page, size, title, label) => {
+  return http
+    .post("admin/posts", {
+      page: page,
+      size: size,
+      title: title,
+      label: label
+    })
+    .catch((x) => {
+      console.log(x)
+    })
+    .then((x) => {
+      return x.data
+    })
+}
+
+export const GetStatisticDtoAsync = () => {
+  return http
+    .get("admin/statistic")
+    .catch((x) => {
+      console.log(x)
+    })
+    .then((x) => {
+      return x.data
     })
 }

@@ -40,6 +40,10 @@ http.interceptors.request.use(
     if (config.headers.isLoading !== false) {
       showLoading()
     }
+    if (localStorage.getItem("jwt")) {
+      http.defaults.headers.common["Authorization"] =
+        localStorage.getItem("jwt")
+    }
     const { url } = config
     if (whiteApi.includes(url)) {
       const token = window.sessionStorage.getItem("token")

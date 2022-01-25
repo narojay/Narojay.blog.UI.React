@@ -13,7 +13,8 @@ const AddPost = () => {
   const OnAddPost = () => {
     const postContent = post.current.innerText
     const titleContent = title.current.value
-    AddPostApi(titleContent, postContent, label)
+    const labelContent = label.current.value
+    AddPostApi(titleContent, postContent, labelContent)
   }
   useEffect(() => {
     // 配置highlight
