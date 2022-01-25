@@ -1,5 +1,6 @@
 import React from "react"
 import MyNavLink from "../../../MyNavLink"
+import Chart from "../Chart"
 import Infor from "../Infor"
 import Notice from "../Notice"
 import Statictict from "../Statictict"
@@ -29,6 +30,11 @@ const Home = () => {
         <MyNavLink to="/admin/say" className={styles.homelink}>
           <Statictict type="post"></Statictict>
         </MyNavLink>
+      </div>
+      <div className={styles.statistictlabel}>
+        <Chart />
+        <Chart />
+        <Chart />
       </div>
     </>
   )

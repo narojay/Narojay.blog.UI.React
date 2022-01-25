@@ -1,5 +1,6 @@
 .aboutme-box {
-  background-color: rgba(35, 35, 44, 1);
-  margin-top: 100px;
   border-radius: 20px;
+  flex: 1;
+  margin-right: 20px;
+  background-color: #fff;
 }
