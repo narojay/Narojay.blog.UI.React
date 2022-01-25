@@ -1,5 +1,6 @@
 import { message } from "antd"
 import React, { useState } from "react"
+import http from "../../../utils/http"
 import { loginAsync } from "../../../utils/request"
 import "./index.css"
 const Login = (props) => {
@@ -11,6 +12,7 @@ const Login = (props) => {
         message.info("用户名或者密码错误！")
       } else {
         localStorage.setItem("jwt", x.data)
+
         props.history.push("admin/backstage")
       }
     })
