@@ -16,19 +16,19 @@ const Home = () => {
       </div>
       <div className={styles.statistict}>
         <MyNavLink to="/admin/article" className={styles.homelink}>
-          <Statictict type="post"></Statictict>
+          <Statictict type="文章"></Statictict>
         </MyNavLink>
         <MyNavLink to="/admin/say" className={styles.homelink}>
-          <Statictict type="label"></Statictict>
+          <Statictict type="标签"></Statictict>
         </MyNavLink>
         <MyNavLink to="/admin/say" className={styles.homelink}>
-          <Statictict type="post"></Statictict>
+          <Statictict type="标签"></Statictict>
         </MyNavLink>
         <MyNavLink to="/admin/say" className={styles.homelink}>
-          <Statictict type="post"></Statictict>
+          <Statictict type="标签"></Statictict>
         </MyNavLink>
         <MyNavLink to="/admin/say" className={styles.homelink}>
-          <Statictict type="post"></Statictict>
+          <Statictict type="标签"></Statictict>
         </MyNavLink>
       </div>
       <div className={styles.statistictlabel}>

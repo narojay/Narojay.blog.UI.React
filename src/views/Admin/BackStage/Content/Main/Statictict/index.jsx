@@ -44,7 +44,8 @@ const Statictict = (props) => {
 
   return (
     <div className={styles.staticbox}>
-      {statisticDto.name}:{statisticDto.num}
+      <span className={styles.first}>{statisticDto.name}</span> :{" "}
+      <span className={styles.second}>{statisticDto.num}</span>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { message } from "antd"
 import React, { useState } from "react"
-import http from "../../../utils/http"
 import { loginAsync } from "../../../utils/request"
 import "./index.css"
 const Login = (props) => {

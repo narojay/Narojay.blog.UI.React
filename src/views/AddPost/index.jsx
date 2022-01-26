@@ -4,6 +4,7 @@ import "./index.css"
 import hljs from "highlight.js"
 import marked from "marked"
 import { AddPostApi } from "../../utils/request"
+import { Button, Input } from "antd"
 
 const AddPost = () => {
   const [text, setText] = useState("")
@@ -41,10 +42,17 @@ const AddPost = () => {
   }, [])
   return (
     <div>
-      <header>基于React的markdown实时编辑器</header>
-      标题：<input ref={title}></input>
-      标签：<input ref={label}></input>
-      <button onClick={OnAddPost}>发布</button>
+      <div>
+        <span className="add-article">写文章</span>
+      </div>
+      <div className="add-article-form">
+        <span>标题：</span>
+        <Input ref={title} className="add-article-form-item"></Input>
+        <span>标签:</span>
+        <Input ref={label} className="add-article-form-item"></Input>
+        <Button onClick={OnAddPost}>发布</Button>
+      </div>
+
       <div className="marked">
         <div
           ref={post}

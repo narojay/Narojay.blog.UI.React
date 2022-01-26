@@ -1,7 +1,7 @@
-import { Button, Input, Select, Table } from "antd"
+import { Button, Input, Select, Table, Tooltip } from "antd"
 import { Option } from "antd/lib/mentions"
 import React, { useEffect, useRef, useState } from "react"
-import { getPostAdmin } from "../../../../../../utils/request"
+import { getLabelsAsync, getPostAdmin } from "../../../../../../utils/request"
 import styles from "./index.module.css"
 import moment from "moment"
 const Article = (props) => {
@@ -15,25 +15,33 @@ const Article = (props) => {
   }
 
   const query = () => {
+    setloading(true)
     const titleContent = title.current.state.value
     const { page, size, label } = pagerequest
     getPostAdmin(page, size, titleContent, label).then((x) => {
       setarticlesShow(x.data)
+      setloading(false)
     })
   }
   const [articlesShow, setarticlesShow] = useState([])
+  const [list, setlist] = useState([])
   const [pagerequest, setpagerequest] = useState({
     page: 1,
     size: 10,
     title: null,
     label: null
   })
+  const [loading, setloading] = useState(false)
   useEffect(() => {
     const { page, size, title, label } = pagerequest
     getPostAdmin(page, size, title, label).then((x) => {
       setarticlesShow(x.data)
     })
-  }, [pagerequest])
+    getLabelsAsync().then((x) => {
+      setlist(x)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const columns = [
     {
@@ -76,13 +84,22 @@ const Article = (props) => {
           className={styles.articlebutton}
           onChange={handleChange}
         >
-          <Option value=".net">Jack</Option>
-          <Option value="java">Lucy</Option>
-          <Option value="生活记录">生活记录</Option>
+          {list.map((x, y) => (
+            <Option key={y} value={x}>
+              {x}
+            </Option>
+          ))}
         </Select>
-        <Button className={styles.articlebutton} type="primary" onClick={query}>
-          搜索
-        </Button>
+        <Tooltip title="搜索">
+          <Button
+            type="primary"
+            onClick={query}
+            loading={loading}
+            className={styles.articlebutton}
+          >
+            搜索
+          </Button>
+        </Tooltip>
       </div>
       <Table
         size="middle"

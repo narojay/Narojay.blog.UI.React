@@ -117,3 +117,13 @@ export const GetStatisticDtoAsync = () => {
       return x.data
     })
 }
+
+export const getLabelsAsync = () => {
+  return http.get("admin/labels").then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}

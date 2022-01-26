@@ -1,11 +1,26 @@
 .marked {
   min-height: calc(100vh - 60px);
   display: flex;
-  border: 1px solid;
+  border: 5px solid cadetblue;
 }
 .input-region,
 .show-region {
   flex: 1;
   padding: 20px;
   font-size: 20px;
+}
+
+.add-article {
+  font-size: 40px;
+  font-weight: 500;
+  color: cornflowerblue;
+}
+
+.add-article-form {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+.add-article-form-item {
+  flex: 1;
 }
