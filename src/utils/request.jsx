@@ -127,3 +127,12 @@ export const getLabelsAsync = () => {
     }
   })
 }
+export const deleteArticleById = (id) => {
+  return http.post("admin/post/delete?id=" + id).then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}

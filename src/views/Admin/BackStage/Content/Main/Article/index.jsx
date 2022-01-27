@@ -1,7 +1,19 @@
-import { Button, Input, Select, Table, Tooltip } from "antd"
+import {
+  Button,
+  Input,
+  message,
+  Popconfirm,
+  Select,
+  Table,
+  Tooltip
+} from "antd"
 import { Option } from "antd/lib/mentions"
 import React, { useEffect, useRef, useState } from "react"
-import { getLabelsAsync, getPostAdmin } from "../../../../../../utils/request"
+import {
+  deleteArticleById,
+  getLabelsAsync,
+  getPostAdmin
+} from "../../../../../../utils/request"
 import styles from "./index.module.css"
 import moment from "moment"
 const Article = (props) => {
@@ -9,11 +21,27 @@ const Article = (props) => {
     pagerequest.label = e
     setpagerequest({ ...pagerequest })
   }
+
   const title = useRef()
   const addpost = () => {
     props.history.push("/admin/addpost")
   }
-
+  const deletePost = (e) => {
+    deleteArticleById(e).then((x) => {
+      if (x) {
+        message.success("删除成功")
+        const { page, size, title, label } = pagerequest
+        getPostAdmin(page, size, title, label).then((x) => {
+          setarticlesShow(x.data)
+        })
+        getLabelsAsync().then((x) => {
+          setlist(x)
+        })
+      } else {
+        message.warning("删除失败")
+      }
+    })
+  }
   const query = () => {
     setloading(true)
     const titleContent = title.current.state.value
@@ -61,6 +89,26 @@ const Article = (props) => {
       dataIndex: "label",
       key: "id",
       render: (x) => <strong>{x}</strong>
+    },
+    {
+      title: "操作",
+      key: "id",
+      render: (x) => (
+        <Popconfirm
+          title={
+            <>
+              确认要删除文章:<b>{x.title}</b>吗？
+            </>
+          }
+          onConfirm={() => deletePost(x.id)}
+          okText="确认"
+          cancelText="取消"
+        >
+          <Button type="primary" danger>
+            删除
+          </Button>
+        </Popconfirm>
+      )
     }
   ]
 

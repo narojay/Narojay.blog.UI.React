@@ -13,8 +13,8 @@ const AddPost = () => {
   const label = useRef()
   const OnAddPost = () => {
     const postContent = post.current.innerText
-    const titleContent = title.current.value
-    const labelContent = label.current.value
+    const titleContent = title.current.state.value
+    const labelContent = label.current.state.value
     AddPostApi(titleContent, postContent, labelContent)
   }
   useEffect(() => {
