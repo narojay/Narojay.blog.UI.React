@@ -1,4 +1,4 @@
-import { Button, Input, Select, Table, Tooltip } from "antd"
+import { Button, Input, Popconfirm, Select, Table, Tooltip } from "antd"
 import { Option } from "antd/lib/mentions"
 import React, { useEffect, useRef, useState } from "react"
 import { getLabelsAsync, getPostAdmin } from "../../../../../../utils/request"
@@ -13,7 +13,9 @@ const Article = (props) => {
   const addpost = () => {
     props.history.push("/admin/addpost")
   }
-
+  const deleteArticle = (e) => {
+    console.log(e)
+  }
   const query = () => {
     setloading(true)
     const titleContent = title.current.state.value
@@ -61,6 +63,29 @@ const Article = (props) => {
       dataIndex: "label",
       key: "id",
       render: (x) => <strong>{x}</strong>
+    },
+    {
+      title: "操作",
+      key: "id",
+      render: (x) => (
+        <>
+          <Button type="primary">修改</Button>
+
+          <Popconfirm
+            placement="topRight"
+            title={"确认删除文章:" + x.title + "吗？"}
+            onConfirm={() => {
+              deleteArticle(x.id)
+            }}
+            okText="确认"
+            cancelText="取消"
+          >
+            <Button type="primary" danger>
+              删除
+            </Button>
+          </Popconfirm>
+        </>
+      )
     }
   ]
 

@@ -10,7 +10,7 @@ const Header = (props) => {
   }
   return (
     <div className="HeaderBox">
-      <a href={"ww"} className="blogBtn" target="_blank" rel="noreferrer">
+      <a href={"/"} className="blogBtn" rel="noreferrer">
         <HomeOutlined />
       </a>
       <Popconfirm
