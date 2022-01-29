@@ -3,7 +3,37 @@
   background-attachment: fixed;
   overflow: auto;
 }
+div {
+  padding: 0;
+  margin: 0;
+}
 
-.home-aside {
-  width: 260px;
+::-webkit-scrollbar {
+  display: none;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+input {
+  background: none;
+  outline: none;
+  border: 0px;
+  border-radius: 0;
+}
+body {
+  width: 100% !important;
+}
+html {
+  background-color: #0b0a06;
+}
+
+.bgc {
+  background-image: url(https://img-blog.csdnimg.cn/80c2751421694ebf86bd7f6b58a95194.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

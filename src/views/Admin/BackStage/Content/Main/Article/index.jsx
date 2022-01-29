@@ -61,9 +61,12 @@ const Article = (props) => {
   })
   const [loading, setloading] = useState(false)
   useEffect(() => {
+    setloading(true)
     const { page, size, title, label } = pagerequest
+
     getPostAdmin(page, size, title, label).then((x) => {
       setarticlesShow(x.data)
+      setloading(false)
     })
     getLabelsAsync().then((x) => {
       setlist(x)
@@ -150,6 +153,7 @@ const Article = (props) => {
         </Tooltip>
       </div>
       <Table
+        loading={loading}
         size="middle"
         className="Table"
         bordered
