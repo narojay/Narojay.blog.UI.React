@@ -3,3 +3,29 @@
   flex: 1;
   margin-right: 20px;
 }
+
+.aboutme-title-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 36px;
+  color: #fff;
+  font-family: "yu400";
+}
+
+.aboutme-main-box {
+  width: 1000px;
+  background-color: rgba(35, 35, 44, 1);
+  border-radius: 20px;
+  margin: 0 100px;
+  margin-top: 100px;
+  padding: 40px;
+}
+
+.about-site-first {
+  margin-right: 20px;
+}
+
+.about-site-second {
+  margin-left: 20px;
+}
