@@ -42,7 +42,7 @@ jobs:
           # 到七牛云 个人中心 -> 密钥管理 获取 AccessKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
           access_key: ${{secrets.ACCESS_Key}}
           # 到七牛云 个人中心 -> 密钥管理 获取  SecretKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
-          secret_key: ${{secrets.SECRET_KeyS}}
+          secret_key: ${{secrets.SECRET_Key}}
           # 本地要上传的文件夹
           local_dir: ./build/static/
           # 七牛云空间里的文件夹
