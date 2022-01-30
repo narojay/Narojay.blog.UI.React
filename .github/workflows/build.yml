@@ -22,4 +22,14 @@ jobs:
 
       - name: Build project
         run:  yarn install && yarn build
+        
+      - name: upload files to server
+        uses: vacare/anofuss-upload@v1
+        with:
+          host: ${{ secrets.Host }}
+          username: ${{ secrets.UserName }}
+          key: ${{ secrets.Password }}
+          known_hosts: ${{ secrets.Known_Hosts }}
+          source: ./build/
+          target: /www/wwwroot/blog.narojay.site
 
