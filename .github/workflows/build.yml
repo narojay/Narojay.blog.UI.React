@@ -32,4 +32,18 @@ jobs:
           known_hosts: ${{ secrets.Known_Hosts }}
           source: ./build/
           target: /www/wwwroot/blog.narojay.site
-
+      - name: up2qn action
+        uses: luochongfei/up2qn@0.0.1
+        with:
+          # 七牛云空间名称
+          bucket: ${{secrets.QiNiu_Name}}
+          # 七牛云存储区域 如: 华南 华东 华北 北美 东南亚
+          zone: ${{secrets.QiNiu_Zone}}
+          # 到七牛云 个人中心 -> 密钥管理 获取 AccessKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
+          access_key: ${{secrets.ACCESS_Key}}
+          # 到七牛云 个人中心 -> 密钥管理 获取  SecretKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
+          secret_key: ${{secrets.SECRET_KeyS}}
+          # 本地要上传的文件夹
+          local_dir: ./build/static/
+          # 七牛云空间里的文件夹
+          target_dir: /static/
