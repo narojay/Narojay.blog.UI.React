@@ -45,3 +45,10 @@ jobs:
           source_dir: ./build/static/
           # 七牛云空间里的文件夹
           dest_dir: /static
+      - name: start application
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: nginx -s reload
+          host: ${{ secrets.Host }}
+          username: ${{ secrets.UserName }}
+          privateKey: ${{ secrets.Password }}
