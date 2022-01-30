@@ -42,6 +42,6 @@ jobs:
           # 到七牛云 个人中心 -> 密钥管理 获取  SecretKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
           secret_key: ${{secrets.QINIU_SECRET_KEY}}
           # 本地要上传的文件夹
-          local_dir: ./build/static/
+          source_dir: ./build/static/
           # 七牛云空间里的文件夹
           dest_dir: /static
