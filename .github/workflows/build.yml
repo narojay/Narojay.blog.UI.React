@@ -32,7 +32,7 @@ jobs:
           known_hosts: ${{ secrets.Known_Hosts }}
           source: ./build/
           target: /www/wwwroot/blog.narojay.site
-      - name: up2qn action
+      - name: upload  files to qiniu oss
         uses: hujiulong/action-qiniu-upload@v0.0.2
         with:
           # 七牛云空间名称
