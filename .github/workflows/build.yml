@@ -46,4 +46,4 @@ jobs:
           # 本地要上传的文件夹
           local_dir: ./build/static/
           # 七牛云空间里的文件夹
-          target_dir: /static/
+          target_dir: /static
