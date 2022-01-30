@@ -19,7 +19,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "16.13.2"
-
+      - name: setup-yarn
+        uses: mskelton/setup-yarn@v1.2.1
       - name: Build project
-        run: yarn && yarn build
+        run: yarn install && yarn build
 
