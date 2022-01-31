@@ -3,7 +3,7 @@ import { GetPostList } from "../../utils/request"
 import "./index.css"
 import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
-import { Pagination, Spin } from "antd"
+import { Pagination } from "antd"
 import moment from "moment"
 const PostList = (props) => {
   const [state, setstate] = useState({
