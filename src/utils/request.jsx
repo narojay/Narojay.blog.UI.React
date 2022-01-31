@@ -136,3 +136,13 @@ export const deleteArticleById = (id) => {
     }
   })
 }
+
+export const getAboutMeContentAsync = () => {
+  return http.get("admin/aboutme").then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}

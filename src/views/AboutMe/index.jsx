@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
+import blogmarked from "../../utils/blogmarked.js"
 import ReactEcharts from "echarts-for-react"
-import { getLabelStatistics } from "../../utils/request"
+import { getAboutMeContentAsync, getLabelStatistics } from "../../utils/request"
 import "./index.css"
 import { Switch } from "antd"
 const AboutMe = () => {
   const [state, setstate] = useState([])
+  const [aboutMeContent, setaboutMeContent] = useState("")
   const [aboutme, setaboutme] = useState(true)
   const my = {}
   const my1 = { color: "#696969" }
@@ -28,8 +30,10 @@ const AboutMe = () => {
       />
     </div>
   )
-  const aboutmehim = <div>我是一名coder</div>
   useEffect(() => {
+    getAboutMeContentAsync().then((x) => {
+      setaboutMeContent(x)
+    })
     getLabelStatistics().then((x) => {
       var arr = []
       for (var key in x.data) {
@@ -40,6 +44,14 @@ const AboutMe = () => {
       setstate(arr)
     })
   }, [])
+  let html = blogmarked(aboutMeContent).replace(/<pre>/g, "<pre id='hljs'>")
+  const aboutmehim = (
+    <div
+      className="markdownStyle animate__animated animate__backInDown"
+      dangerouslySetInnerHTML={{ __html: html }}
+    ></div>
+  )
+
   return (
     <>
       <div className="aboutme-main-box">
