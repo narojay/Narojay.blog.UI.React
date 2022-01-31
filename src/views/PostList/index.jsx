@@ -12,10 +12,8 @@ const PostList = (props) => {
     totalCount: 0,
     disable: false
   })
-  const [isLoading, setisLoading] = useState(false)
   const [posts, setPosts] = useState([])
   useEffect(() => {
-    setisLoading(true)
     const { currentPage, pageSize } = state
     GetPostList(currentPage, pageSize).then((x) => {
       const { data, totalCount } = x
@@ -26,7 +24,6 @@ const PostList = (props) => {
         totalCount: totalCount,
         disable: true
       })
-      setisLoading(false)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
