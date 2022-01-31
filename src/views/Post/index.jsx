@@ -6,7 +6,6 @@ import "./index.css"
 import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
-import { Spin } from "antd"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
