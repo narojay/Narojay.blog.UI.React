@@ -2,7 +2,7 @@
   前端：react
   后端: .net core 
 
-## 访问地址(域名还在备案中)
+## 访问地址
 [博客地址](http://blog.narojay.site/)
 
 ## 页面展示(功能还在开发中)
