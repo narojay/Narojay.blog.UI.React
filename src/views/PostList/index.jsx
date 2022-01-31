@@ -3,7 +3,7 @@ import { GetPostList } from "../../utils/request"
 import "./index.css"
 import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
-import { Pagination } from "antd"
+import { Pagination, Spin } from "antd"
 import moment from "moment"
 const PostList = (props) => {
   const [state, setstate] = useState({
@@ -12,8 +12,10 @@ const PostList = (props) => {
     totalCount: 0,
     disable: false
   })
+  const [isLoading, setisLoading] = useState(false)
   const [posts, setPosts] = useState([])
   useEffect(() => {
+    setisLoading(true)
     const { currentPage, pageSize } = state
     GetPostList(currentPage, pageSize).then((x) => {
       const { data, totalCount } = x
@@ -24,6 +26,7 @@ const PostList = (props) => {
         totalCount: totalCount,
         disable: true
       })
+      setisLoading(false)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
