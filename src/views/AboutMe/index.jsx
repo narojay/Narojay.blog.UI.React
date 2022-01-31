@@ -6,7 +6,8 @@ import { Switch } from "antd"
 const AboutMe = () => {
   const [state, setstate] = useState([])
   const [aboutme, setaboutme] = useState(true)
-
+  const my = {}
+  const my1 = { color: "#696969" }
   const change = () => {
     setaboutme(!aboutme)
   }
@@ -43,9 +44,13 @@ const AboutMe = () => {
     <>
       <div className="aboutme-main-box">
         <div className="aboutme-title-box">
-          <div className="about-site-first">关于本站</div>
+          <div className="about-site-first" style={aboutme ? my : my1}>
+            关于本站
+          </div>
           <Switch defaultChecked onChange={change} />
-          <div className="about-site-second">关于我</div>
+          <div className="about-site-second" style={!aboutme ? my : my1}>
+            关于我
+          </div>
         </div>
         {aboutme ? aboutsite : aboutmehim}
       </div>
