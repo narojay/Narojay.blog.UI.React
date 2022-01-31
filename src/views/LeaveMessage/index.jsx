@@ -171,8 +171,8 @@ const LeaveMessage = () => {
       >
         {pushModel}
       </Modal>
-      {leaveMessages(data, 150)}
-      {page}
+      <div className="leaveMessage-box">{leaveMessages(data, 150)}</div>
+      <div className="leaveMessage-page-box">{page}</div>
     </div>
   )
 }

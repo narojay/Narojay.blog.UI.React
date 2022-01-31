@@ -1,11 +1,22 @@
 .leaveMessage-container {
-  background-color: rgba(35, 35, 44, 1);
-  margin: 0 auto;
   width: 1000px;
   font-size: 20px;
   color: white;
 }
+.leaveMessage-box {
+  padding: 50px;
+  margin: 100px auto;
+  margin-bottom: 0;
+  border: 2px solid;
+  width: 1000px;
+  border-radius: 20px;
+  background-color: rgba(35, 35, 44, 1);
+}
 
+.leaveMessage-page-box {
+  margin-left: 100px;
+  margin-top: 40px;
+}
 .icon-format:hover {
   font-size: 30px;
   cursor: pointer;
@@ -19,7 +30,6 @@
   width: 200px;
   word-break: break-all;
   background-color: black;
-  border-radius: 10px;
   line-height: 0;
 }
 
