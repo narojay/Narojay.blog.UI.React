@@ -42,7 +42,7 @@ const Nav = () => {
             </MyNavLink>
           </li>
           <li>
-            <MyNavLink to="/admin/backstage" className="funcLi">
+            <MyNavLink to="/admin/aboutmemanage" className="funcLi">
               关于
             </MyNavLink>
           </li>
