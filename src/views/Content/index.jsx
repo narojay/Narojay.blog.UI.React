@@ -7,6 +7,7 @@ import Post from "../Post"
 import Home from "../Home"
 import AddPost from "../AddPost"
 import "./index.css"
+import SiteTimeLine from "../Admin/BackStage/Content/Main/SiteTimeLine/index,"
 
 const Content = (props) => {
   return (
@@ -16,6 +17,7 @@ const Content = (props) => {
           <Route path="/blog/home" component={Home} />
           <Route path="/blog/posts" component={PostList} />
           <Route path="/blog/leavemessage" component={LeaveMessage} />
+          <Route path="/blog/sitetimeline" component={SiteTimeLine} />
           <Route path="/blog/aboutme" component={AboutMe} />
           <Route path="/blog/post/:postId" component={Post} />
           <Route path="/blog/addpost" component={AddPost} />

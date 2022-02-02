@@ -26,7 +26,6 @@ const AboutMe = () => {
             }
           ]
         }}
-        className="animate__animated animate__flip"
       />
     </div>
   )
@@ -47,7 +46,7 @@ const AboutMe = () => {
   let html = blogmarked(aboutMeContent).replace(/<pre>/g, "<pre id='hljs'>")
   const aboutmehim = (
     <div
-      className="markdownStyle animate__animated animate__backInDown"
+      className="markdownStyle  "
       dangerouslySetInnerHTML={{ __html: html }}
     ></div>
   )

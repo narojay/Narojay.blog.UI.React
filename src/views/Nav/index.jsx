@@ -6,7 +6,7 @@ const Nav = (props) => {
   const navItem = [
     { id: 0, name: "文章", to: "/blog/posts" },
     { id: 1, name: "留言板", to: "/blog/leavemessage" },
-    { id: 2, name: "建站", to: "/blog/leavemessage" },
+    { id: 2, name: "建站", to: "/blog/sitetimeline" },
     { id: 3, name: "关于我", to: "/blog/aboutme" }
   ]
   // const secondNavItem = [
