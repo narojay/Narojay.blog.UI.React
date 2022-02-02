@@ -4,9 +4,10 @@ import { getLeaveMessages, pushLeaveMessages } from "../../utils/request"
 import "./index.css"
 import { EditTwoTone } from "@ant-design/icons"
 import { Form, Input, Modal, Pagination } from "antd"
-
+import QueueAnim from "rc-queue-anim"
 const LeaveMessage = () => {
   const [data, setData] = useState([])
+  const [loading, setloading] = useState(false)
   const [visible, setVisible] = React.useState(false)
   const [confirmLoading, setConfirmLoading] = React.useState(false)
   const [parentId, setParentId] = React.useState(0)
@@ -120,6 +121,7 @@ const LeaveMessage = () => {
   )
 
   useEffect(() => {
+    setloading(true)
     getLeaveMessages(1, 10).then((x) => {
       setData(x.data)
       setPageDto({
@@ -128,8 +130,9 @@ const LeaveMessage = () => {
         totalCount: x.totalCount,
         disable: true
       })
+      setloading(false)
     })
-  }, [visible])
+  }, [])
 
   const leaveMessages = (data, legth) =>
     data.map((x) => (
@@ -155,25 +158,36 @@ const LeaveMessage = () => {
             />
           </div>
         ) : null}
-        {x.children ? leaveMessages(x.children, legth + 10) : null}
+        {x.children ? (
+          <QueueAnim className="queue-simple">
+            {leaveMessages(x.children, legth + 10)}
+          </QueueAnim>
+        ) : null}
       </div>
     ))
-
-  return (
-    <div className="leaveMessage">
-      <Modal
-        forceRender
-        title="回复"
-        visible={visible}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        {pushModel}
-      </Modal>
-      <div className="leaveMessage-box">{leaveMessages(data, 150)}</div>
-      <div className="leaveMessage-page-box">{page}</div>
-    </div>
-  )
+  if (loading) {
+    return <div></div>
+  } else {
+    return (
+      <div className="leaveMessage">
+        <Modal
+          forceRender
+          title="回复"
+          visible={visible}
+          onOk={handleOk}
+          confirmLoading={confirmLoading}
+          onCancel={handleCancel}
+        >
+          {pushModel}
+        </Modal>
+        <div className="leaveMessage-box">
+          <QueueAnim className="queue-simple">
+            {leaveMessages(data, 150)}
+          </QueueAnim>
+        </div>
+        <div className="leaveMessage-page-box">{page}</div>
+      </div>
+    )
+  }
 }
 export default LeaveMessage

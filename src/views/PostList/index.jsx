@@ -5,6 +5,7 @@ import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
+import QueueAnim from "rc-queue-anim"
 const PostList = (props) => {
   const [state, setstate] = useState({
     currentPage: 1,
@@ -55,24 +56,26 @@ const PostList = (props) => {
   const list = (
     <div className="box">
       <div>
-        {posts.map((x) => (
-          <div key={x.id} className=" animate__animated animate__slideInLeft">
-            <div
-              onClick={() => GetDetail(x.id)}
-              className="article-item theme-color"
-            >
-              <div className="article-item-info">
-                <div className="article-item-title">{x.title}</div>
+        <QueueAnim className="queue-simple">
+          {posts.map((x) => (
+            <div key={x.id}>
+              <div
+                onClick={() => GetDetail(x.id)}
+                className="article-item theme-color"
+              >
                 <div className="article-item-info">
-                  <div className="tag-right">{x.label}</div>
-                  <div className="tag-left">
-                    {moment(x.creationTime).format("YYYY-MM-DD")}
+                  <div className="article-item-title">{x.title}</div>
+                  <div className="article-item-info">
+                    <div className="tag-right">{x.label}</div>
+                    <div className="tag-left">
+                      {moment(x.creationTime).format("YYYY-MM-DD")}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </QueueAnim>
       </div>
       {state.totalCount ? page : <></>}
     </div>
