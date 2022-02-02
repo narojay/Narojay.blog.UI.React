@@ -5,6 +5,7 @@ import "./index.css"
 import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
+import "magic.css/dist/magic.min.css"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
@@ -36,8 +37,8 @@ const Post = (props) => {
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
   const result = isLoading ? (
-    <div className="standard-page-box theme-color">
-      <div className="title">
+    <div className="standard-page-box theme-color ">
+      <div className="title magictime slideLeftReturn">
         <div>{data.title}</div>
         <div className="author">
           <div>作者：{data.author}</div>
@@ -46,9 +47,10 @@ const Post = (props) => {
         </div>
       </div>
       <div
-        className="markdownStyle animate__animated animate__backInDown"
+        className="markdownStyle magictime slideRightReturn"
         dangerouslySetInnerHTML={{ __html: html }}
       ></div>
+
       <div>
         支持：{data.likeCount} 反对：{data.unlikeCount}
       </div>

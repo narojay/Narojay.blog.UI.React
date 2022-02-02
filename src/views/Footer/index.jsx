@@ -9,6 +9,7 @@ const Footer = () => {
         href="http://beian.miit.gov.cn/"
         target="_blank"
         rel="noreferrer"
+        style={{ color: "rgba(35, 35, 44, 1)" }}
       >
         苏ICP备2021047018号
       </a>
