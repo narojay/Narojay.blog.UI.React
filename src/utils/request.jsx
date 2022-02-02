@@ -148,7 +148,7 @@ export const getAboutMeContentAsync = () => {
 }
 
 export const ModifyAboutMeContentAsync = (content) => {
-  return http.post(`admin/aboutme/modify?content=${content}`).then((x) => {
+  return http.post("admin/aboutme/modify", { content: content }).then((x) => {
     try {
       return x.data
     } catch {
