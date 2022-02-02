@@ -36,7 +36,11 @@
 .markdownStyle h4,
 .markdownStyle h5,
 .markdownStyle h6 {
-  color: #fff;
+  color: palegreen;
+  font-weight: 700;
+}
+.markdownStyle li {
+  color: lightseagreen;
   font-weight: 700;
 }
 /* 行内代码 */

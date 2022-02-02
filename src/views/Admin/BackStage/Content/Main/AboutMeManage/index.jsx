@@ -1,11 +1,11 @@
 import { Button, message, Popconfirm } from "antd"
 import TextArea from "antd/lib/input/TextArea"
+import blogmarked from "../../../../../../utils/blogmarked.js"
 import React, { useEffect, useState } from "react"
 import {
   getAboutMeContentAsync,
   ModifyAboutMeContentAsync
 } from "../../../../../../utils/request"
-
 const AboutMeManage = () => {
   const [content, setcontent] = useState("")
   const [loading, setloading] = useState(true)
@@ -26,6 +26,7 @@ const AboutMeManage = () => {
       setloading(false)
     })
   }, [])
+  var html = blogmarked(content)
   if (loading) {
     return <div></div>
   } else {
@@ -36,11 +37,17 @@ const AboutMeManage = () => {
         <div style={{ display: "flex" }}>
           <TextArea
             defaultValue={content}
+            style={{ flex: 1 }}
             autoSize={{ minRows: 12 }}
             allowClear
             onChange={changeContent}
           />
-          <TextArea autoSize={{ minRows: 12 }} value={content} />
+
+          <div
+            className="markdownStyle"
+            style={{ flex: 1, backgroundColor: "#fff" }}
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
         </div>
         <Popconfirm
           placement="bottomRight"
