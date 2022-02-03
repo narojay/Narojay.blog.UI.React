@@ -15,21 +15,19 @@ export default class AuthRoute extends Component {
         <Switch>
           <Route path="/admin" component={Admin} />
           <Route path="/blog">
-            <div className="bgc">
-              <Nav />
-              <Content />
-              <Footer />
-              <BackTop>
-                <img
-                  src={up}
-                  style={{
-                    width: "50px",
-                    height: "50px"
-                  }}
-                  alt=""
-                />
-              </BackTop>
-            </div>
+            <Nav />
+            <Content />
+            <Footer />
+            <BackTop>
+              <img
+                src={up}
+                style={{
+                  width: "50px",
+                  height: "50px"
+                }}
+                alt=""
+              />
+            </BackTop>
           </Route>
           <Redirect to="/blog/home" />
         </Switch>
