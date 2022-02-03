@@ -37,3 +37,15 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+body:before {
+  content: " ";
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://img-blog.csdnimg.cn/80c2751421694ebf86bd7f6b58a95194.png)
+    center 0 no-repeat;
+  background-size: cover;
+}
