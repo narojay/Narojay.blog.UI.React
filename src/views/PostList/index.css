@@ -61,6 +61,12 @@
 }
 .article-item:before {
   left: 120%;
-  transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+  transition: allx 1s cubic-bezier(0.3, 1, 0.2, 1);
   -webkit-transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
+}
+
+@media all and (max-width: 1000px) {
+  .article-item-title {
+    font-size: 15px;
+  }
 }
