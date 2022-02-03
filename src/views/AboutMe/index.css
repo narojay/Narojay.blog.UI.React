@@ -4,6 +4,9 @@
   margin-right: 20px;
 }
 
+.aboutme-content-box {
+  font-size: 200px;
+}
 .aboutme-title-box {
   display: flex;
   justify-content: flex-start;
@@ -14,10 +17,9 @@
 }
 
 .aboutme-main-box {
-  width: 1000px;
+  width: 100%;
   background-color: rgba(35, 35, 44, 1);
   border-radius: 20px;
-  margin: 0 100px;
   margin-top: 100px;
   padding: 40px;
 }
@@ -28,4 +30,10 @@
 
 .about-site-second {
   margin-left: 20px;
+}
+
+@media all and (max-width: 1000px) {
+  .aboutme-title-box {
+    font-size: 20px;
+  }
 }

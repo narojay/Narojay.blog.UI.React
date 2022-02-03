@@ -182,7 +182,7 @@ const LeaveMessage = () => {
         </Modal>
         <div className="leaveMessage-box">
           <QueueAnim className="queue-simple">
-            {leaveMessages(data, 150)}
+            {leaveMessages(data, 5)}
           </QueueAnim>
         </div>
         <div className="leaveMessage-page-box">{page}</div>

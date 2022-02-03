@@ -1,5 +1,5 @@
 .leaveMessage-container {
-  width: 1000px;
+  width: 100%;
   font-size: 20px;
   color: white;
 }
@@ -8,14 +8,12 @@
   margin: 100px auto;
   margin-bottom: 0;
   border: 2px solid;
-  width: 1000px;
+  width: 100%;
   border-radius: 20px;
   background-color: rgba(35, 35, 44, 1);
 }
 
 .leaveMessage-page-box {
-  margin-left: 100px;
-  margin-top: 40px;
 }
 .icon-format:hover {
   font-size: 30px;

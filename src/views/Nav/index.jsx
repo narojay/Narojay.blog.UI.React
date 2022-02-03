@@ -20,18 +20,16 @@ const Nav = (props) => {
   // }
   const nacList = (
     <div>
-      <nav className="nav-pc theme-color">
-        <div className="nav-content animate__animated animate__bounceInRight">
-          <NavLink to="/blog/home" className="nav-btn common-hover">
-            Narojay
+      <div className="nav-pc theme-color animate__animated animate__bounceInRight">
+        <NavLink to="/blog/home" className="nav-btn common-hover">
+          Narojay
+        </NavLink>
+        {navItem.map((item) => (
+          <NavLink className="nav-btn" to={item.to} key={item.id}>
+            {item.name}
           </NavLink>
-          {navItem.map((item) => (
-            <NavLink className="nav-btn" to={item.to} key={item.id}>
-              {item.name}
-            </NavLink>
-          ))}
-        </div>
-      </nav>
+        ))}
+      </div>
     </div>
   )
   return nacList

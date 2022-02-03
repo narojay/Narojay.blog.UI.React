@@ -15,7 +15,6 @@
 .home-body {
   display: flex;
 }
-
 .home-main {
   width: calc(100% - 260px);
   /* min-height: calc(100vh - 60px - 120px); */
@@ -23,7 +22,7 @@
   padding-right: 20px;
 }
 .home-aside {
-  width: 260px;
+  width: 200px;
   color: #fff;
 }
 
@@ -77,4 +76,18 @@
 .cardstyle:hover {
   font-size: 40px;
   transition: all 0.3s;
+}
+
+@media all and (max-width: 1000px) {
+  /* 表格 */
+  .home-main {
+    padding-right: 0;
+    width: 100%;
+  }
+  .home-aside {
+    display: none;
+  }
+  .home-top-title {
+    font-size: 25px;
+  }
 }

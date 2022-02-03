@@ -77,7 +77,7 @@
 }
 /* ———————————————————————————————————————————————————————————— */
 
-@media all and (max-width: 1240px) {
+@media all and (max-width: 1000px) {
   /* 表格 */
   .markdownStyle table {
     margin: 10px auto;

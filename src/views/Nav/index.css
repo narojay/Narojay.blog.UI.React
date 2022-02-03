@@ -1,6 +1,9 @@
 .nav-pc {
   height: 80px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 0 30px #000;
 }
 .theme-color {
@@ -8,8 +11,6 @@
 }
 .nav-content {
   display: flex;
-
-  width: 1200px;
   margin: 0 auto;
   height: 100%;
   justify-content: center;
@@ -29,10 +30,25 @@
   transition: all 0.2s;
   user-select: none;
 }
+.nav-btn-mobile {
+  display: none;
+}
 .nav-btn:hover,
 .home-btn:hover,
 .admin-btn:hover,
 .articels-second-item:hover {
   font-size: 20px;
   font-weight: bold;
+}
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: lightblue;
+  }
+  .nav-btn {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .nav-btn:hover {
+    font-size: 15px;
+  }
 }

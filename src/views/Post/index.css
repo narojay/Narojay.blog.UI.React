@@ -7,7 +7,7 @@
 }
 
 .standard-page-box {
-  width: 1000px;
+  width: 100%;
   margin: 100px auto;
   border-radius: 20px;
   padding: 40px;
@@ -17,13 +17,13 @@
 .title {
   text-align: center;
   color: cadetblue;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bolder;
   height: 200px;
   color: cadetblue;
 }
 .author {
-  font-size: 20px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
 }
