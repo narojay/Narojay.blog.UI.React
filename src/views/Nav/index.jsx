@@ -1,8 +1,8 @@
 import "./index.css"
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-const Nav = (props) => {
+const Nav = () => {
   const navItem = [
     { id: 0, name: "文章", to: "/blog/posts" },
     { id: 1, name: "留言板", to: "/blog/leavemessage" },
@@ -21,13 +21,13 @@ const Nav = (props) => {
   const nacList = (
     <div>
       <div className="nav-pc theme-color animate__animated animate__bounceInRight">
-        <NavLink to="/blog/home" className="nav-btn common-hover">
+        <Link to="/blog/home" className="nav-btn common-hover">
           Narojay
-        </NavLink>
+        </Link>
         {navItem.map((item, index) => (
-          <NavLink className="nav-btn" to={item.to} key={index}>
+          <Link className="nav-btn" to={item.to} key={index}>
             {item.name}
-          </NavLink>
+          </Link>
         ))}
       </div>
     </div>
