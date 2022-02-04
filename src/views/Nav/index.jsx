@@ -24,8 +24,8 @@ const Nav = (props) => {
         <NavLink to="/blog/home" className="nav-btn common-hover">
           Narojay
         </NavLink>
-        {navItem.map((item) => (
-          <NavLink className="nav-btn" to={item.to} key={item.id}>
+        {navItem.map((item, index) => (
+          <NavLink className="nav-btn" to={item.to} key={index}>
             {item.name}
           </NavLink>
         ))}

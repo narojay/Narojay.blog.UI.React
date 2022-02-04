@@ -56,10 +56,8 @@ const LeaveMessage = () => {
       parentId: parentId
     }
     pushLeaveMessages(leaveMessage)
-    setTimeout(() => {
-      setVisible(false)
-      setConfirmLoading(false)
-    }, 2000)
+    setVisible(false)
+    setConfirmLoading(false)
   }
   const [form] = Form.useForm()
   const handleOk = () => {
