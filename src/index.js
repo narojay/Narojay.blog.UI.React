@@ -1,13 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import reportWebVitals from "./reportWebVitals"
-import { BrowserRouter } from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 import AuthRoute from "./routes/AuthRoute.jsx"
 import "./index.css"
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <AuthRoute />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 )
 
