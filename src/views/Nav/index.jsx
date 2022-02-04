@@ -1,6 +1,6 @@
 import "./index.css"
 import React from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const Nav = () => {
   const navItem = [
@@ -21,13 +21,13 @@ const Nav = () => {
   const nacList = (
     <div>
       <div className="nav-pc theme-color animate__animated animate__bounceInRight">
-        <Link to="/blog/home" className="nav-btn common-hover">
+        <NavLink to="/blog/home" className="nav-btn common-hover">
           Narojay
-        </Link>
-        {navItem.map((item, index) => (
-          <Link className="nav-btn" to={item.to} key={index}>
+        </NavLink>
+        {navItem.map((item) => (
+          <NavLink className="nav-btn" to={item.to} key={item.id}>
             {item.name}
-          </Link>
+          </NavLink>
         ))}
       </div>
     </div>
