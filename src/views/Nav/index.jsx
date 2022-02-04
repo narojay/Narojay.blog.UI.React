@@ -1,6 +1,6 @@
 import "./index.css"
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, withRouter } from "react-router-dom"
 
 const Nav = () => {
   const navItem = [
@@ -35,4 +35,4 @@ const Nav = () => {
   return nacList
 }
 
-export default Nav
+export default withRouter(Nav)

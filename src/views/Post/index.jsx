@@ -6,6 +6,7 @@ import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
 import "magic.css/dist/magic.min.css"
+import { withRouter } from "react-router-dom"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
@@ -61,4 +62,4 @@ const Post = (props) => {
   return result
 }
 
-export default Post
+export default withRouter(Post)
