@@ -5,8 +5,8 @@ import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
-import QueueAnim from "rc-queue-anim"
 const PostList = (props) => {
+  const isCancelled = React.useRef(true)
   const [state, setstate] = useState({
     currentPage: 1,
     pageSize: 10,
@@ -19,20 +19,20 @@ const PostList = (props) => {
     const { currentPage, pageSize } = state
     setLoading(true)
     GetPostList(currentPage, pageSize).then((x) => {
-      const { data, totalCount } = x
-      setstate({
-        currentPage: 1,
-        pageSize: 10,
-        totalCount: totalCount,
-        disable: true
-      })
-      setPosts(data)
-      setLoading(false)
+      if (isCancelled) {
+        const { data, totalCount } = x
+        setstate({
+          currentPage: 1,
+          pageSize: 10,
+          totalCount: totalCount,
+          disable: true
+        })
+        setPosts(data)
+        setLoading(false)
+      }
     })
     return () => {
-      setLoading(false)
-      setPosts([])
-      setstate({})
+      isCancelled.current = false
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -66,26 +66,24 @@ const PostList = (props) => {
   ) : (
     <div className="box">
       <div>
-        <QueueAnim className="queue-simple">
-          {posts.map((x) => (
-            <div key={x.id}>
-              <div
-                onClick={() => GetDetail(x.id)}
-                className="article-item theme-color"
-              >
+        {posts.map((x) => (
+          <div key={x.id}>
+            <div
+              onClick={() => GetDetail(x.id)}
+              className="article-item theme-color"
+            >
+              <div className="article-item-info">
+                <div className="article-item-title">{x.title}</div>
                 <div className="article-item-info">
-                  <div className="article-item-title">{x.title}</div>
-                  <div className="article-item-info">
-                    <div className="tag-right">{x.label}</div>
-                    <div className="tag-left">
-                      {moment(x.creationTime).format("YYYY-MM-DD")}
-                    </div>
+                  <div className="tag-right">{x.label}</div>
+                  <div className="tag-left">
+                    {moment(x.creationTime).format("YYYY-MM-DD")}
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </QueueAnim>
+          </div>
+        ))}
       </div>
       {state.totalCount ? page : <></>}
     </div>

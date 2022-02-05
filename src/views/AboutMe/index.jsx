@@ -31,21 +31,25 @@ const AboutMe = () => {
     </div>
   )
   useEffect(() => {
+    let unMounted = true
     getAboutMeContentAsync().then((x) => {
-      setaboutMeContent(x)
+      if (unMounted) {
+        setaboutMeContent(x)
+      }
     })
     getLabelStatistics().then((x) => {
-      var arr = []
-      for (var key in x.data) {
-        if (x.data.hasOwnProperty(key)) {
-          arr.push({ name: key, value: x.data[key] })
+      if (unMounted) {
+        var arr = []
+        for (var key in x.data) {
+          if (x.data.hasOwnProperty(key)) {
+            arr.push({ name: key, value: x.data[key] })
+          }
         }
+        setstate(arr)
       }
-      setstate(arr)
     })
     return () => {
-      setaboutMeContent("")
-      setstate([])
+      unMounted = false
     }
   }, [])
   let html = blogmarked(aboutMeContent).replace(/<pre>/g, "<pre id='hljs'>")

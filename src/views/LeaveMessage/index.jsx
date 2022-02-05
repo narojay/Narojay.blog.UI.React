@@ -4,7 +4,6 @@ import { getLeaveMessages, pushLeaveMessages } from "../../utils/request"
 import "./index.css"
 import { EditTwoTone } from "@ant-design/icons"
 import { Form, Input, Modal, Pagination } from "antd"
-import QueueAnim from "rc-queue-anim"
 const LeaveMessage = () => {
   const [data, setData] = useState([])
   const [loading, setloading] = useState(true)
@@ -17,6 +16,26 @@ const LeaveMessage = () => {
     totalCount: 0,
     disable: false
   })
+
+  useEffect(() => {
+    let unmounted = true
+    getLeaveMessages(1, 10).then((x) => {
+      if (unmounted) {
+        setPageDto({
+          currentPage: 1,
+          pageSize: 10,
+          totalCount: x.totalCount,
+          disable: true
+        })
+        setData(x.data)
+        setloading(false)
+      }
+    })
+    return () => {
+      unmounted = false
+      console.log("first")
+    }
+  }, [])
   const page =
     pageDto.disable === true ? (
       <Pagination
@@ -118,25 +137,6 @@ const LeaveMessage = () => {
     </Form>
   )
 
-  useEffect(() => {
-    let unmounted = true
-    getLeaveMessages(1, 10).then((x) => {
-      if (unmounted) {
-        setData(x.data)
-        setPageDto({
-          currentPage: 1,
-          pageSize: 10,
-          totalCount: x.totalCount,
-          disable: true
-        })
-        setloading(false)
-      }
-    })
-    return () => {
-      unmounted = false
-    }
-  }, [])
-
   const leaveMessages = (data, legth) =>
     data.map((x) => (
       <div key={x.id} className="leaveMessage-container">
@@ -161,11 +161,7 @@ const LeaveMessage = () => {
             />
           </div>
         ) : null}
-        {x.children ? (
-          <QueueAnim className="queue-simple">
-            {leaveMessages(x.children, legth + 10)}
-          </QueueAnim>
-        ) : null}
+        {x.children ? <div>{leaveMessages(x.children, legth + 10)}</div> : null}
       </div>
     ))
   if (loading) {
@@ -183,11 +179,7 @@ const LeaveMessage = () => {
         >
           {pushModel}
         </Modal>
-        <div className="leaveMessage-box">
-          <QueueAnim className="queue-simple">
-            {leaveMessages(data, 5)}
-          </QueueAnim>
-        </div>
+        <div className="leaveMessage-box">{leaveMessages(data, 5)}</div>
         <div className="leaveMessage-page-box">{page}</div>
       </div>
     )
