@@ -32,6 +32,11 @@ const Post = (props) => {
       setData(res.data)
       setisLoading(true)
     })
+
+    return () => {
+      setData([])
+      setisLoading(false)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   //替换所有的换行符

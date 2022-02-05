@@ -1,5 +1,5 @@
 import { Popover } from "antd"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import PostList from "../PostList"
 import "./index.css"
 import { WechatOutlined, QqOutlined, GithubOutlined } from "@ant-design/icons"
@@ -13,6 +13,12 @@ const Home = () => {
     state.totalCount = page
     setstate({ ...state })
   }
+  useEffect(() => {
+    return () => {
+      setstate({})
+    }
+  }, [])
+
   const WX = (
     <img
       src={"https://img-blog.csdnimg.cn/072b397cbefc494c97ebbf269aede63d.png"}

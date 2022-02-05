@@ -13,19 +13,27 @@ const PostList = (props) => {
     totalCount: 0,
     disable: false
   })
+  const [loading, setLoading] = useState(true)
   const [posts, setPosts] = useState([])
   useEffect(() => {
     const { currentPage, pageSize } = state
+    setLoading(true)
     GetPostList(currentPage, pageSize).then((x) => {
       const { data, totalCount } = x
-      setPosts(data)
       setstate({
         currentPage: 1,
         pageSize: 10,
         totalCount: totalCount,
         disable: true
       })
+      setPosts(data)
+      setLoading(false)
     })
+    return () => {
+      setLoading(false)
+      setPosts([])
+      setstate({})
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const GetDetail = (id) => {
@@ -53,7 +61,9 @@ const PostList = (props) => {
     ) : (
       <div></div>
     )
-  const list = (
+  const list = loading ? (
+    <div></div>
+  ) : (
     <div className="box">
       <div>
         <QueueAnim className="queue-simple">

@@ -43,6 +43,10 @@ const AboutMe = () => {
       }
       setstate(arr)
     })
+    return () => {
+      setaboutMeContent("")
+      setstate([])
+    }
   }, [])
   let html = blogmarked(aboutMeContent).replace(/<pre>/g, "<pre id='hljs'>")
   const aboutmehim = (

@@ -7,7 +7,7 @@ import { Form, Input, Modal, Pagination } from "antd"
 import QueueAnim from "rc-queue-anim"
 const LeaveMessage = () => {
   const [data, setData] = useState([])
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(true)
   const [visible, setVisible] = React.useState(false)
   const [confirmLoading, setConfirmLoading] = React.useState(false)
   const [parentId, setParentId] = React.useState(0)
@@ -119,17 +119,22 @@ const LeaveMessage = () => {
   )
 
   useEffect(() => {
-    setloading(true)
+    let unmounted = true
     getLeaveMessages(1, 10).then((x) => {
-      setData(x.data)
-      setPageDto({
-        currentPage: 1,
-        pageSize: 10,
-        totalCount: x.totalCount,
-        disable: true
-      })
-      setloading(false)
+      if (unmounted) {
+        setData(x.data)
+        setPageDto({
+          currentPage: 1,
+          pageSize: 10,
+          totalCount: x.totalCount,
+          disable: true
+        })
+        setloading(false)
+      }
     })
+    return () => {
+      unmounted = false
+    }
   }, [])
 
   const leaveMessages = (data, legth) =>
