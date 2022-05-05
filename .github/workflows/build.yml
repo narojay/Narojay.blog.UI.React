@@ -1,0 +1,54 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.13.2"
+
+      - name: Build project
+        run:  yarn install && yarn build
+        
+      - name: upload files to server
+        uses: vacare/anofuss-upload@v1
+        with:
+          host: ${{ secrets.Host }}
+          username: ${{ secrets.UserName }}
+          key: ${{ secrets.Password }}
+          known_hosts: ${{ secrets.Known_Hosts }}
+          source: ./build/
+          target: /www/wwwroot/blog.narojay.site
+      - name: upload  files to qiniu oss
+        uses: hujiulong/action-qiniu-upload@v0.0.2
+        with:
+          # 七牛云空间名称
+          bucket: ${{secrets.QINIU_NAME}}
+          # 到七牛云 个人中心 -> 密钥管理 获取 AccessKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
+          access_key: ${{secrets.QINIU_ACCESS_KEY}}
+          # 到七牛云 个人中心 -> 密钥管理 获取  SecretKey，为确保您的空间安全，请使用 github 仓库 secrets 变量
+          secret_key: ${{secrets.QINIU_SECRET_KEY}}
+          # 本地要上传的文件夹
+          source_dir: ./build/static/
+          # 七牛云空间里的文件夹
+          dest_dir: /static
+      - name: start application
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: nginx -s reload
+          host: ${{ secrets.Host }}
+          username: ${{ secrets.UserName }}
+          privateKey: ${{ secrets.Password }}

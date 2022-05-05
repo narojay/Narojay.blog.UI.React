@@ -6,25 +6,34 @@ import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
 const PostList = (props) => {
+  const isCancelled = React.useRef(true)
   const [state, setstate] = useState({
     currentPage: 1,
     pageSize: 10,
     totalCount: 0,
     disable: false
   })
+  const [loading, setLoading] = useState(true)
   const [posts, setPosts] = useState([])
   useEffect(() => {
     const { currentPage, pageSize } = state
+    setLoading(true)
     GetPostList(currentPage, pageSize).then((x) => {
-      const { data, totalCount } = x
-      setPosts(data)
-      setstate({
-        currentPage: 1,
-        pageSize: 10,
-        totalCount: totalCount,
-        disable: true
-      })
+      if (isCancelled) {
+        const { data, totalCount } = x
+        setstate({
+          currentPage: 1,
+          pageSize: 10,
+          totalCount: totalCount,
+          disable: true
+        })
+        setPosts(data)
+        setLoading(false)
+      }
     })
+    return () => {
+      isCancelled.current = false
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const GetDetail = (id) => {
@@ -52,11 +61,13 @@ const PostList = (props) => {
     ) : (
       <div></div>
     )
-  const list = (
+  const list = loading ? (
+    <div></div>
+  ) : (
     <div className="box">
       <div>
         {posts.map((x) => (
-          <div key={x.id} className=" animate__animated animate__slideInLeft">
+          <div key={x.id}>
             <div
               onClick={() => GetDetail(x.id)}
               className="article-item theme-color"

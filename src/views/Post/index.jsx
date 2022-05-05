@@ -1,12 +1,14 @@
-import marked from "marked"
+import marked from "../../utils/blogmarked.js"
 import React, { useState } from "react"
-import hljs from "highlight.js"
 import "./github-dark.css"
 import "./index.css"
 import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
+import "magic.css/dist/magic.min.css"
+import { withRouter } from "react-router-dom"
 const Post = (props) => {
+  const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
     {
       title: "",
@@ -24,38 +26,25 @@ const Post = (props) => {
     []
   )
   React.useEffect(() => {
-    hljs.configure({
-      tabReplace: "",
-      classPrefix: "hljs-",
-      languages: [
-        "CSS",
-        "HTML",
-        "JavaScript",
-        "Python",
-        "TypeScript",
-        "Markdown",
-        "csharp"
-      ]
-    })
-
-    marked.setOptions({
-      renderer: new marked.Renderer(),
-      highlight: (code) => hljs.highlightAuto(code).value,
-      gfm: true, //默认为true。 允许 Git Hub标准的markdown.
-      tables: true, //默认为true。 允许支持表格语法。该选项要求 gfm 为true。
-      breaks: true //默认为false。 允许回车换行。该选项要求 gfm 为true。
-    })
+    setisLoading(false)
     const { postId } = props.match.params
     getConfigsByProductId(postId).then((res) => {
       setData(res.data)
+      setisLoading(true)
     })
-  }, [props.match.params])
+
+    return () => {
+      setData([])
+      setisLoading(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   //替换所有的换行符
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
-  const result = (
-    <div className="standard-page-box theme-color">
-      <div className="title">
+  const result = isLoading ? (
+    <div className="standard-page-box theme-color ">
+      <div className="title magictime slideLeftReturn">
         <div>{data.title}</div>
         <div className="author">
           <div>作者：{data.author}</div>
@@ -64,15 +53,18 @@ const Post = (props) => {
         </div>
       </div>
       <div
-        className="markdownStyle animate__animated animate__backInDown"
+        className="markdownStyle magictime slideRightReturn"
         dangerouslySetInnerHTML={{ __html: html }}
       ></div>
+
       <div>
         支持：{data.likeCount} 反对：{data.unlikeCount}
       </div>
     </div>
+  ) : (
+    <></>
   )
   return result
 }
 
-export default Post
+export default withRouter(Post)

@@ -127,3 +127,32 @@ export const getLabelsAsync = () => {
     }
   })
 }
+export const deleteArticleById = (id) => {
+  return http.post("admin/post/delete?id=" + id).then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}
+
+export const getAboutMeContentAsync = () => {
+  return http.get("admin/aboutme").then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}
+
+export const ModifyAboutMeContentAsync = (content) => {
+  return http.post("admin/aboutme/modify", { content: content }).then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}

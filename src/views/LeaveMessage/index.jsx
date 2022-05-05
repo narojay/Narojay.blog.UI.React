@@ -4,9 +4,9 @@ import { getLeaveMessages, pushLeaveMessages } from "../../utils/request"
 import "./index.css"
 import { EditTwoTone } from "@ant-design/icons"
 import { Form, Input, Modal, Pagination } from "antd"
-
 const LeaveMessage = () => {
   const [data, setData] = useState([])
+  const [loading, setloading] = useState(true)
   const [visible, setVisible] = React.useState(false)
   const [confirmLoading, setConfirmLoading] = React.useState(false)
   const [parentId, setParentId] = React.useState(0)
@@ -16,6 +16,26 @@ const LeaveMessage = () => {
     totalCount: 0,
     disable: false
   })
+
+  useEffect(() => {
+    let unmounted = true
+    getLeaveMessages(1, 10).then((x) => {
+      if (unmounted) {
+        setPageDto({
+          currentPage: 1,
+          pageSize: 10,
+          totalCount: x.totalCount,
+          disable: true
+        })
+        setData(x.data)
+        setloading(false)
+      }
+    })
+    return () => {
+      unmounted = false
+      console.log("first")
+    }
+  }, [])
   const page =
     pageDto.disable === true ? (
       <Pagination
@@ -55,10 +75,8 @@ const LeaveMessage = () => {
       parentId: parentId
     }
     pushLeaveMessages(leaveMessage)
-    setTimeout(() => {
-      setVisible(false)
-      setConfirmLoading(false)
-    }, 2000)
+    setVisible(false)
+    setConfirmLoading(false)
   }
   const [form] = Form.useForm()
   const handleOk = () => {
@@ -119,18 +137,6 @@ const LeaveMessage = () => {
     </Form>
   )
 
-  useEffect(() => {
-    getLeaveMessages(1, 10).then((x) => {
-      setData(x.data)
-      setPageDto({
-        currentPage: 1,
-        pageSize: 10,
-        totalCount: x.totalCount,
-        disable: true
-      })
-    })
-  }, [visible])
-
   const leaveMessages = (data, legth) =>
     data.map((x) => (
       <div key={x.id} className="leaveMessage-container">
@@ -155,25 +161,28 @@ const LeaveMessage = () => {
             />
           </div>
         ) : null}
-        {x.children ? leaveMessages(x.children, legth + 10) : null}
+        {x.children ? <div>{leaveMessages(x.children, legth + 10)}</div> : null}
       </div>
     ))
-
-  return (
-    <div className="leaveMessage">
-      <Modal
-        forceRender
-        title="回复"
-        visible={visible}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        {pushModel}
-      </Modal>
-      {leaveMessages(data, 150)}
-      {page}
-    </div>
-  )
+  if (loading) {
+    return <div></div>
+  } else {
+    return (
+      <div className="leaveMessage">
+        <Modal
+          forceRender
+          title="回复"
+          visible={visible}
+          onOk={handleOk}
+          confirmLoading={confirmLoading}
+          onCancel={handleCancel}
+        >
+          {pushModel}
+        </Modal>
+        <div className="leaveMessage-box">{leaveMessages(data, 5)}</div>
+        <div className="leaveMessage-page-box">{page}</div>
+      </div>
+    )
+  }
 }
 export default LeaveMessage

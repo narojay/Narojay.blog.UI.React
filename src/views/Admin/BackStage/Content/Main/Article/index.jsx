@@ -1,7 +1,20 @@
 import { Button, Input, Popconfirm, Select, Table, Tooltip } from "antd"
+import {
+  Button,
+  Input,
+  message,
+  Popconfirm,
+  Select,
+  Table,
+  Tooltip
+} from "antd"
 import { Option } from "antd/lib/mentions"
 import React, { useEffect, useRef, useState } from "react"
-import { getLabelsAsync, getPostAdmin } from "../../../../../../utils/request"
+import {
+  deleteArticleById,
+  getLabelsAsync,
+  getPostAdmin
+} from "../../../../../../utils/request"
 import styles from "./index.module.css"
 import moment from "moment"
 const Article = (props) => {
@@ -9,12 +22,27 @@ const Article = (props) => {
     pagerequest.label = e
     setpagerequest({ ...pagerequest })
   }
+
   const title = useRef()
   const addpost = () => {
     props.history.push("/admin/addpost")
   }
-  const deleteArticle = (e) => {
-    console.log(e)
+
+  const deletePost = (e) => {
+    deleteArticleById(e).then((x) => {
+      if (x) {
+        message.success("删除成功")
+        const { page, size, title, label } = pagerequest
+        getPostAdmin(page, size, title, label).then((x) => {
+          setarticlesShow(x.data)
+        })
+        getLabelsAsync().then((x) => {
+          setlist(x)
+        })
+      } else {
+        message.warning("删除失败")
+      }
+    })
   }
   const query = () => {
     setloading(true)
@@ -35,9 +63,12 @@ const Article = (props) => {
   })
   const [loading, setloading] = useState(false)
   useEffect(() => {
+    setloading(true)
     const { page, size, title, label } = pagerequest
+
     getPostAdmin(page, size, title, label).then((x) => {
       setarticlesShow(x.data)
+      setloading(false)
     })
     getLabelsAsync().then((x) => {
       setlist(x)
@@ -68,23 +99,20 @@ const Article = (props) => {
       title: "操作",
       key: "id",
       render: (x) => (
-        <>
-          <Button type="primary">修改</Button>
-
-          <Popconfirm
-            placement="topRight"
-            title={"确认删除文章:" + x.title + "吗？"}
-            onConfirm={() => {
-              deleteArticle(x.id)
-            }}
-            okText="确认"
-            cancelText="取消"
-          >
-            <Button type="primary" danger>
-              删除
-            </Button>
-          </Popconfirm>
-        </>
+        <Popconfirm
+          title={
+            <>
+              确认要删除文章:<b>{x.title}</b>吗？
+            </>
+          }
+          onConfirm={() => deletePost(x.id)}
+          okText="确认"
+          cancelText="取消"
+        >
+          <Button type="primary" danger>
+            删除
+          </Button>
+        </Popconfirm>
       )
     }
   ]
@@ -127,6 +155,7 @@ const Article = (props) => {
         </Tooltip>
       </div>
       <Table
+        loading={loading}
         size="middle"
         className="Table"
         bordered

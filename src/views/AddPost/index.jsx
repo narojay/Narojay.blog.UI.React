@@ -4,7 +4,7 @@ import "./index.css"
 import hljs from "highlight.js"
 import marked from "marked"
 import { AddPostApi } from "../../utils/request"
-import { Button, Input } from "antd"
+import { Button, Form, Input } from "antd"
 
 const AddPost = () => {
   const [text, setText] = useState("")
@@ -13,10 +13,11 @@ const AddPost = () => {
   const label = useRef()
   const OnAddPost = () => {
     const postContent = post.current.innerText
-    const titleContent = title.current.value
-    const labelContent = label.current.value
+    const titleContent = title.current.state.value
+    const labelContent = label.current.state.value
     AddPostApi(titleContent, postContent, labelContent)
   }
+
   useEffect(() => {
     // 配置highlight
     hljs.configure({
@@ -46,11 +47,44 @@ const AddPost = () => {
         <span className="add-article">写文章</span>
       </div>
       <div className="add-article-form">
-        <span>标题：</span>
-        <Input ref={title} className="add-article-form-item"></Input>
-        <span>标签:</span>
-        <Input ref={label} className="add-article-form-item"></Input>
-        <Button onClick={OnAddPost}>发布</Button>
+        <Form
+          name="basic"
+          labelCol={{
+            span: 8
+          }}
+          wrapperCol={{
+            span: 16
+          }}
+          initialValues={{
+            remember: true
+          }}
+          onFinish={OnAddPost}
+        >
+          <Form.Item
+            label="标题："
+            name="title"
+            rules={[{ required: true, message: "标题不能为空" }]}
+          >
+            <Input ref={title} className="add-article-form-item"></Input>
+          </Form.Item>
+          <Form.Item
+            label="标签:"
+            name="label"
+            rules={[{ required: true, message: "标题不能为空" }]}
+          >
+            <Input ref={label} className="add-article-form-item"></Input>
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              发布
+            </Button>
+          </Form.Item>
+        </Form>
       </div>
 
       <div className="marked">

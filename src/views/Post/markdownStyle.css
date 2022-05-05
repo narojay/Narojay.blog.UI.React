@@ -36,7 +36,11 @@
 .markdownStyle h4,
 .markdownStyle h5,
 .markdownStyle h6 {
-  color: #fff;
+  color: palegreen;
+  font-weight: 700;
+}
+.markdownStyle li {
+  color: lightseagreen;
   font-weight: 700;
 }
 /* 行内代码 */
@@ -73,7 +77,7 @@
 }
 /* ———————————————————————————————————————————————————————————— */
 
-@media all and (max-width: 1240px) {
+@media all and (max-width: 1000px) {
   /* 表格 */
   .markdownStyle table {
     margin: 10px auto;
