@@ -7,6 +7,7 @@ import "./index.css"
 import { Redirect, Route, Switch } from "react-router"
 import { BackTop } from "antd"
 import up from "../img/up.svg"
+import ScrollToTop from "../views/ScrollToTop"
 
 export default class AuthRoute extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class AuthRoute extends Component {
                 alt=""
               />
             </BackTop>
+            <ScrollToTop />
           </Route>
           <Redirect to="/blog/home" />
         </Switch>
