@@ -1,11 +1,11 @@
 import marked from "../../utils/blogmarked.js"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import "antd/dist/antd.css"
 import "./github-dark.css"
 import "./index.css"
 import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
-import "magic.css/dist/magic.min.css"
 import { withRouter } from "react-router-dom"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
@@ -25,14 +25,13 @@ const Post = (props) => {
     },
     []
   )
-  React.useEffect(() => {
+  useEffect(() => {
     setisLoading(false)
     const { postId } = props.match.params
     getConfigsByProductId(postId).then((res) => {
       setData(res.data)
       setisLoading(true)
     })
-
     return () => {
       setData([])
       setisLoading(false)
@@ -43,22 +42,23 @@ const Post = (props) => {
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
   const result = isLoading ? (
-    <div className="standard-page-box theme-color ">
-      <div className="title magictime slideLeftReturn">
+    <div>
+      <div className="title">
         <div>{data.title}</div>
         <div className="author">
-          <div>作者：{data.author}</div>
-          {"\u00a0 \u00a0 \u00a0"}
-          <div>时间: {moment(data.creationTime).format("YYYY-MM-DD")} </div>
+          作者：{data.author} 发布时间:
+          {moment(data.creationTime).format("YYYY-MM-DD")}{" "}
         </div>
       </div>
-      <div
-        className="markdownStyle magictime slideRightReturn"
-        dangerouslySetInnerHTML={{ __html: html }}
-      ></div>
 
-      <div>
-        支持：{data.likeCount} 反对：{data.unlikeCount}
+      <div className="standard-page-box theme-color ">
+        <div
+          className="markdownStyle magictime slideRightReturn"
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
+        <div>
+          支持：{data.likeCount} 反对：{data.unlikeCount}
+        </div>
       </div>
     </div>
   ) : (

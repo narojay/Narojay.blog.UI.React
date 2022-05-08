@@ -37,7 +37,7 @@ const Home = () => {
     <div>
       <div className="home-top-img">
         <span className="home-top-title animate__animated animate__lightSpeedInLeft">
-          ~木叶飞舞之处，火亦生生不息~
+          {/* ~木叶飞舞之处，火亦生生不息~ */}
         </span>
       </div>
       <div className="home-body">

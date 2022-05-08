@@ -64,14 +64,13 @@ http.interceptors.request.use(
 )
 http.interceptors.response.use(
   function (response) {
-    const data = response
-    if (data.config.headers.isLoading !== false) {
+    if (response.config.headers.isLoading !== false) {
       hideLoading()
     }
     if (response.status === 200 || response.status === 204) {
-      return data
+      return response.data
     } else {
-      message.error(data.message || data.desc)
+      message.error(response.message || response.desc)
       return Promise.reject(response)
     }
   },

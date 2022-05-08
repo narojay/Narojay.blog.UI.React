@@ -20,7 +20,7 @@ const Nav = () => {
   // }
   const nacList = (
     <div>
-      <div className="nav-pc theme-color animate__animated animate__bounceInRight">
+      <div className="nav-pc animate__animated animate__bounceInRight">
         <NavLink to="/blog/home" className="nav-btn common-hover">
           Narojay
         </NavLink>

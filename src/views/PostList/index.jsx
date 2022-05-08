@@ -85,6 +85,7 @@ const PostList = (props) => {
           </div>
         ))}
       </div>
+
       {state.totalCount ? page : <></>}
     </div>
   )

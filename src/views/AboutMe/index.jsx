@@ -62,7 +62,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className="aboutme-main-box">
+      <div className="aboutme-main-box theme-color">
         <div className="aboutme-title-box">
           <div className="about-site-first" style={aboutme ? my : my1}>
             关于本站

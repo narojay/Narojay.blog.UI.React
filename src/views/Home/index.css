@@ -14,15 +14,17 @@
 }
 .home-body {
   display: flex;
+  justify-content: space-between;
 }
 .home-main {
   width: calc(100% - 260px);
+  flex: 3;
   /* min-height: calc(100vh - 60px - 120px); */
   min-height: calc(100vh - 120px);
   padding-right: 20px;
 }
 .home-aside {
-  width: 200px;
+  flex: 1;
   color: #fff;
 }
 
@@ -31,12 +33,8 @@
   justify-content: center;
   margin-top: 100px;
   border-radius: 20px;
-  width: 220px;
-  height: 220px;
-  padding: 20px;
   font-size: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  height: 220px;
   background-image: url("https://img-blog.csdnimg.cn/4cca66b39ad249d9a1151bcaa5bc2a37.gif");
   background-repeat: no-repeat;
   background-size: cover;
@@ -49,9 +47,8 @@
   margin-top: 130px;
   height: 60px;
   width: 100%;
-  top: 300px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -59,6 +56,7 @@
   border-radius: 20px;
   overflow: hidden;
   padding: 0;
+  color: rgb(11, 24, 31);
 }
 .QR-code {
   width: 200px;
@@ -66,28 +64,31 @@
 }
 
 .cardstyle {
-  background-color: teal;
+  display: flex;
+  background-color: rgb(11, 24, 31);
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
-  margin: 0 20px;
   font-size: 30px;
   color: #fff;
+  height: 40px;
+  width: 40px;
 }
 
 .cardstyle:hover {
-  font-size: 40px;
   transition: all 0.3s;
+  background-color: rgb(11, 24, 31);
 }
 
 @media all and (max-width: 1000px) {
-  /* 表格 */
+  .home-body {
+    display: flex;
+    justify-content: center;
+  }
   .home-main {
-    padding-right: 0;
-    width: 100%;
+    flex: 3;
   }
   .home-aside {
-    display: none;
-  }
-  .home-top-title {
-    font-size: 25px;
+    flex: 1;
   }
 }
