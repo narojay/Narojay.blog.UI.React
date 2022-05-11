@@ -6,6 +6,6 @@ const ScrollToTop = (prevProps) => {
     window.scrollTo(0, 0)
   }, [prevProps])
 
-  return <div>index</div>
+  return <div></div>
 }
 export default withRouter(ScrollToTop)

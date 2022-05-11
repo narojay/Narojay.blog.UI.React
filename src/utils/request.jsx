@@ -156,3 +156,13 @@ export const ModifyAboutMeContentAsync = (content) => {
     }
   })
 }
+
+export const GetSoliloquizedListAsync = () => {
+  return http.get("soliloquize").then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
+}
