@@ -19,7 +19,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 10rem;
+  font-size: 17rem;
   font-weight: bolder;
   height: 200px;
   color: #fff;
@@ -44,7 +44,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: 2rem;
     font-weight: bolder;
     height: 200px;
     color: #fff;
