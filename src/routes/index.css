@@ -37,6 +37,8 @@ body {
 @media all and (max-width: 1000px) {
   .Blog-box {
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-attachment: fixed;
     background-image: url(https://cdn.narojay.site/R-C.jpg);
