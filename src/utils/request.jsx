@@ -65,7 +65,7 @@ export function pushLeaveMessages(leaveMessage) {
       console.log(x)
     })
     .then((x) => {
-      console.log(x)
+      return x.data
     })
 }
 

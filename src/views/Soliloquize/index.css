@@ -16,9 +16,9 @@
 }
 
 .si-img {
-  border-radius: 10px;
-  width: 70px;
-  height: 70px;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 15rem;
 }
 .si-content {
   border-radius: 10px;
@@ -61,7 +61,6 @@
     position: relative;
     padding: 10px 10px 32px 10px;
     width: 100%;
-    overflow-wrap: break-word;
     margin-left: 20px;
     background-color: #134640;
     font-size: 20px;

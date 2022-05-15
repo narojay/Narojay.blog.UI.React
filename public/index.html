@@ -38,9 +38,15 @@
         var s = document.getElementsByTagName("script")[0]
         s.parentNode.insertBefore(hm, s)
       })()
+      function inMobile() {
+        document.getElementsByTagName("html")[0].style.fontSize =
+          document.documentElement.clientWidth / 450 + "px"
+      }
+      document.addEventListener("DOMContentLoaded", inMobile)
+      window.onresize = inMobile
     </script>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

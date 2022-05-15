@@ -19,14 +19,12 @@
 }
 .nav-btn,
 .home-btn {
-  height: 44px;
-  width: 70px;
+  width: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin-right: 20px;
-  border-radius: 14px;
+  font-size: 5rem;
+  border-radius: 1rem;
   color: #fff;
   transition: all 0.2s;
   user-select: none;
@@ -44,12 +42,5 @@
 @media screen and (max-width: 1000px) {
   body {
     background-color: lightblue;
-  }
-  .nav-btn {
-    font-size: 15px;
-    font-weight: bold;
-  }
-  .nav-btn:hover {
-    font-size: 15px;
   }
 }

@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react"
 import { GetSoliloquizedListAsync } from "../../utils/request"
+import { useLazyImg } from "../../utils/hooks/useLazyImg"
 import "./index.css"
 
 const Soliloquize = () => {
   const [soliloquizes, setsoliloquizes] = useState([])
+  const { imgRef, imgUrl } = useLazyImg(
+    "https://cdn.narojay.site/static%2Fimg%2Ftest.jpg",
+    "https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302022741.webp"
+  )
+
   useEffect(() => {
     GetSoliloquizedListAsync().then((x) => {
       setsoliloquizes(x)
@@ -11,14 +17,12 @@ const Soliloquize = () => {
   }, [])
 
   return (
-    <div className="soliloquize-box theme-color">
+    <div ref={imgRef} className="soliloquize-box theme-color">
       {soliloquizes.map((x) => (
         <div key={x.id} className="soliloquize-item">
-          <img
-            className="si-img"
-            src="https://cdn.narojay.site/static%2Fimg%2Ftest.jpg"
-            alt=""
-          />
+          <div>
+            <img className="si-img" src={imgUrl} alt="" />
+          </div>
           <div className="si-content">
             <div>{x.content}</div>
             <div className="si-creationtime">{x.creationTime}</div>
