@@ -12,28 +12,26 @@ import ScrollToTop from "../views/ScrollToTop"
 export default class AuthRoute extends Component {
   render() {
     return (
-      <div className="Blog-box">
-        <Switch>
-          <Route path="/admin" component={Admin} />
-          <Route path="/blog">
-            <Nav />
-            <Content />
-            <Footer />
-            <BackTop>
-              <img
-                src={up}
-                style={{
-                  width: "50px",
-                  height: "50px"
-                }}
-                alt=""
-              />
-            </BackTop>
-            <ScrollToTop />
-          </Route>
-          <Redirect to="/blog/home" />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/admin" component={Admin} />
+        <Route path="/blog">
+          <Nav />
+          <Content />
+          <Footer />
+          <BackTop>
+            <img
+              src={up}
+              style={{
+                width: "50px",
+                height: "50px"
+              }}
+              alt=""
+            />
+          </BackTop>
+          <ScrollToTop />
+        </Route>
+        <Redirect to="/blog/home" />
+      </Switch>
     )
   }
 }

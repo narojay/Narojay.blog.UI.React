@@ -1,21 +1,29 @@
-.Blog-box {
-  min-height: 100vh;
+body {
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203312131674.webp);
+  background-image: url(https://cdn.narojay.site/1231728.jpg);
 }
 div {
   padding: 0;
   margin: 0;
 }
 
-::-webkit-scrollbar {
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-html,
-body,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 #root {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -25,18 +33,27 @@ input {
   border: 0px;
   border-radius: 0;
 }
-body {
-  width: 100% !important;
-}
+
 html {
   background-color: #0b0a06;
 }
-body {
-}
 
 @media all and (max-width: 1000px) {
-  .Blog-box {
-    min-height: 100vh;
-    background: url(https://cdn.narojay.site/R-C.jpg);
+  body::before {
+    content: "";
+    position: fixed;
+    background-size: cover;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(https://cdn.narojay.site/R-C.jpg) no-repeat center center;
+  }
+  body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://cdn.narojay.site/R-C.jpg);
   }
 }
