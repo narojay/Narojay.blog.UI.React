@@ -1,8 +1,9 @@
 body {
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-image: url(https://cdn.narojay.site/1231728.jpg);
+  background-image: url(https://cdn.narojay.site/815589.png);
 }
 div {
   padding: 0;

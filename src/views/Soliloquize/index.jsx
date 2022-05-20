@@ -6,7 +6,7 @@ import "./index.css"
 const Soliloquize = () => {
   const [soliloquizes, setsoliloquizes] = useState([])
   const { imgRef, imgUrl } = useLazyImg(
-    "https://cdn.narojay.site/static%2Fimg%2Ftest.jpg",
+    "https://cdn.narojay.site/14018.gif",
     "https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302022741.webp"
   )
 

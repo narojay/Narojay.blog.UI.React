@@ -6,7 +6,6 @@ import Admin from "../views/Admin"
 import "./index.css"
 import { Redirect, Route, Switch } from "react-router"
 import { BackTop } from "antd"
-import up from "../img/up.svg"
 import ScrollToTop from "../views/ScrollToTop"
 
 export default class AuthRoute extends Component {
@@ -20,10 +19,11 @@ export default class AuthRoute extends Component {
           <Footer />
           <BackTop>
             <img
-              src={up}
+              src={"https://cdn.narojay.site/215919.gif"}
               style={{
                 width: "50px",
-                height: "50px"
+                height: "50px",
+                borderRadius: "20px"
               }}
               alt=""
             />

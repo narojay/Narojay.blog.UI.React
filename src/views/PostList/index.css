@@ -2,6 +2,7 @@
   height: 220px;
   border-radius: 20px;
   margin-bottom: 20px;
+  padding: 3rem;
   user-select: none;
   transition: all 0.2s;
   width: 100%;
