@@ -3,6 +3,8 @@ import moment from "moment"
 import LeaveMessageReplyItem from "./LeaveMessageReplyItem"
 import { pushLeaveMessages } from "../../../utils/request"
 import { message } from "antd"
+import "./index.css"
+import { CommentOutlined } from "@ant-design/icons"
 const LeaveMessageItem = (props) => {
   const { leaveMesaage } = props
   const [replyStatus, setreplyStatus] = useState(false)
@@ -53,7 +55,7 @@ const LeaveMessageItem = (props) => {
         <div className="le-warp">
           <img
             className="le-img"
-            src="https://cdn.narojay.site/static%2Fimg%2Ftest.jpg"
+            src="https://cdn.narojay.site/14018.gif"
             alt=""
           />
         </div>
@@ -69,7 +71,7 @@ const LeaveMessageItem = (props) => {
                 setreplyStatus(!replyStatus)
               }}
             >
-              1
+              <CommentOutlined />
             </div>
           </div>
           <div className="le-item1-content"> {leaveMesaage.content}</div>
@@ -77,12 +79,12 @@ const LeaveMessageItem = (props) => {
       </div>
       {replyStatus ? (
         <div className="le-replay-content">
-          <div>回复给:{leaveMesaage.nickName}</div>
+          <div className="reply-to">回复给「{leaveMesaage.nickName}」</div>
           <div className="le-input-box">
             <div>
               <img
                 className="le-img"
-                src="	https://cdn.narojay.site/static%2Fimg%2Ftest.jpg"
+                src="https://cdn.narojay.site/14018.gif"
                 alt=""
               />
             </div>

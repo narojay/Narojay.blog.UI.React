@@ -1,7 +1,6 @@
 .soliloquize-box {
   border-radius: 20px;
   margin-top: 100px;
-  margin: 100px 100px 0 100px;
   padding: 40px;
   color: #fff;
   display: flex;
@@ -16,9 +15,9 @@
 }
 
 .si-img {
-  border-radius: 1rem;
-  height: 15rem;
-  width: 15rem;
+  border-radius: 10px;
+  height: 70px;
+  height: 70px;
 }
 .si-content {
   border-radius: 10px;
@@ -46,8 +45,7 @@
 @media all and (max-width: 1000px) {
   .soliloquize-box {
     border-radius: 20px;
-    margin-top: 100px;
-    margin: 100px 10px 0 10px;
+    margin-top: 100rem;
     padding: 10px;
     color: #fff;
     display: flex;
@@ -63,7 +61,7 @@
     width: 100%;
     margin-left: 20px;
     background-color: #134640;
-    font-size: 20px;
+    font-size: 14rem;
     word-break: break-all;
     font-family: "dengxian";
   }
@@ -71,7 +69,7 @@
     position: absolute;
     right: 10px;
     bottom: 2px;
-    font-size: 15px;
+    font-size: 14rem;
   }
 
   .si-img {

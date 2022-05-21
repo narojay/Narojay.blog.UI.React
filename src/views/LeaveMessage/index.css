@@ -1,6 +1,8 @@
 .leaveMessage {
-  border-radius: 1rem;
-  margin: 100px 100px 0 100px;
+  border-radius: 10px;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 100px;
   padding: 40px;
   color: #fff;
   display: flex;
@@ -17,20 +19,19 @@
   width: 100%;
 }
 .le-img {
-  border-radius: 1rem;
-  width: 15rem;
-  height: 15rem;
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
 }
 
 .le-content-box {
   display: flex;
-  width: 100%;
-  padding: 4rem;
+  padding: 4px;
 }
 .le-item-content {
-  width: 100%;
   padding-left: 1rem;
-  font-size: 4rem;
+  width: 100%;
+  font-size: 18px;
   word-break: break-all;
   font-family: "dengxian";
 }
@@ -44,12 +45,12 @@
   font-weight: 800;
 }
 .le-item1-content {
-  background-color: #134640;
-  border-radius: 1rem;
-  padding: 1rem;
+  background-color: rgb(22, 54, 51);
+  border-radius: 10px;
+  padding: 10px;
   width: 100%;
   overflow-wrap: break-word;
-  font-size: 5rem;
+  font-size: 18px;
   word-break: break-all;
   font-family: "dengxian";
 }
@@ -58,23 +59,26 @@
   background-color: violet;
 }
 .le-item1-time {
-  padding-left: 1rem;
+  padding-left: 10px;
 }
 
 .le-child-content {
-  margin-left: 10rem;
+  margin-left: 80px;
 }
 
 .le-reply-btn {
   position: absolute;
-  right: 10px;
+  right: 1rem;
+}
+.le-reply-btn {
+  cursor: pointer;
 }
 .le-reply:hover {
   cursor: pointer;
 }
 
 .le-replay-content {
-  padding: 2px 1rem 1rem 1rem;
+  padding: 10px;
 }
 
 .le-input-box {
@@ -82,33 +86,41 @@
 }
 .le-input-info-main {
   display: flex;
-  padding-bottom: 1rem;
+  height: 46px;
+  font-size: 18px;
+  width: 100%;
+  justify-content: start;
 }
 .le-input-info {
   display: flex;
+  height: 36px;
+  justify-content: space-between;
+  border-radius: 14px;
+  overflow: hidden;
   background-color: #275f59;
-  border-radius: 1rem;
-}
-
-.le-input-value {
-  background-color: rgb(22, 54, 51);
+  margin-right: 10px;
 }
 .le-input-key {
+  width: 56px;
+  user-select: none;
   display: flex;
-  font-size: 4rem;
-  width: 25rem;
   justify-content: center;
   align-items: center;
 }
-
-.textareaBox {
-  height: 50rem;
+.le-input-value {
+  width: 100%;
+  flex: 1;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: rgb(22, 54, 51);
 }
+
 .textarea {
   width: 100%;
+
   resize: none;
   cursor: default;
-  border-radius: 1rem;
+  border-radius: 10px;
   background-color: rgb(22, 54, 51);
 }
 .textarea:hover {
@@ -126,14 +138,13 @@ textarea {
 }
 
 .le-replay-content-box {
+  padding-left: 10px;
   width: 100%;
-  padding-left: 1rem;
 }
 
 .le-comment-box {
-  display: block;
   position: relative;
-  height: 10rem;
+  height: 50px;
 }
 
 .le-comment-box-item1 {
@@ -146,7 +157,7 @@ textarea {
   height: 36px;
   background-color: #275f59;
   border-radius: 1rem;
-  right: 1rem;
+  right: 10px;
   bottom: 0;
 }
 .le-comment-box-item2 {
@@ -159,7 +170,7 @@ textarea {
   height: 36px;
   background-color: #275f59;
   border-radius: 1rem;
-  right: 6rem;
+  right: 100px;
   bottom: 0;
 }
 .le-comment-box-item1:hover {
@@ -173,18 +184,68 @@ textarea {
 
 @media all and (max-width: 1000px) {
   .leaveMessage {
-    border-radius: 20px;
-    margin: 100px 1rem 0 1rem;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(11, 24, 31);
+    border-radius: 10rem;
+    margin-top: 100rem;
+    padding: 15rem;
   }
   .le-img {
-    border-radius: 1rem;
+    border-radius: 5rem;
     width: 35rem;
     height: 35rem;
+  }
+  .le-input-key {
+    width: 35rem;
+    user-select: none;
+  }
+  .le-input-info-main {
+    height: 70rem;
+    font-size: 14rem;
+    flex-direction: column;
+  }
+  .le-input-info {
+    display: flex;
+    margin-bottom: 10rem;
+    margin-right: 3rem;
+  }
+  .le-input-value {
+    padding: 0 2rem;
+    font-size: 14rem;
+    background-color: rgb(22, 54, 51);
+  }
+  .le-comment-box-item1 {
+    font-size: 14rem;
+    width: 40rem;
+    height: 20rem;
+    border-radius: 1rem;
+    right: 10rem;
+    border-radius: 10rem;
+  }
+  .le-comment-box-item2 {
+    font-size: 14rem;
+    width: 40rem;
+    height: 20rem;
+    border-radius: 10rem;
+    right: 60rem;
+  }
+  .le-comment-box {
+    position: relative;
+    height: 25rem;
+  }
+  .le-replay-content-box {
+    padding-left: 10rem;
+  }
+  .le-item-content {
+    padding-left: 10rem;
+    font-size: 14rem;
+  }
+  .le-content-box {
+    padding: 10rem;
+  }
+  .reply-to {
+    font-size: 14rem;
+    font-weight: 700;
+  }
+  .le-child-content {
+    margin-left: 45rem;
   }
 }

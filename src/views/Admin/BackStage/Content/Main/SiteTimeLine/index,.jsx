@@ -10,7 +10,7 @@ const SiteTimeLine = () => {
         justifyContent: "center",
         alignItems: "center",
         marginTop: "100px",
-        backgroundColor: "rgba(35, 35, 44, 1)",
+        backgroundColor: "rgb(11, 24, 31)",
         minHeight: "100vh",
         borderRadius: "20px",
         fontSize: "40px"

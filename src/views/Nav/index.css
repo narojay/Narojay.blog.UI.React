@@ -19,12 +19,12 @@
 }
 .nav-btn,
 .home-btn {
-  width: 40rem;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
-  border-radius: 1rem;
+  font-size: 30px;
+  border-radius: 10px;
   color: #fff;
   transition: all 0.2s;
   user-select: none;
@@ -54,5 +54,14 @@
     color: #fff;
     transition: all 0.2s;
     user-select: none;
+  }
+  .nav-pc {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px #000;
+    background: transparent;
   }
 }
