@@ -35,4 +35,14 @@
   .aboutme-title-box {
     font-size: 20px;
   }
+
+  .aboutme-main-box {
+    width: 100%;
+    border-radius: 10rem;
+    margin-top: 100rem;
+    padding: 10rem;
+  }
+  .aboutme-title-box {
+    font-size: 14rem;
+  }
 }
