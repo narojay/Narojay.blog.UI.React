@@ -89,7 +89,7 @@
   height: 46px;
   font-size: 18px;
   width: 100%;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .le-input-info {
   display: flex;
