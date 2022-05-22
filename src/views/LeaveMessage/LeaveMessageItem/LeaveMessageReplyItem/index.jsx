@@ -15,11 +15,19 @@ const LeaveMessageReplyItem = (props) => {
       <div className="le-item-content">
         <div className="le-item1-title">
           <div className="le-item1-name"> {replyMessage.nickName} </div>
+
+          {replyMessage.isMaster ? (
+            <div className="le-item1-name-master">站长</div>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className="le-item1-content">
+          {replyMessage.content}
           <div className="le-item1-time">
             {moment(replyMessage.creationTime).fromNow()}
           </div>
         </div>
-        <div className="le-item1-content"> {replyMessage.content}</div>
       </div>
     </div>
   ) : null

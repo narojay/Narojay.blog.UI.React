@@ -61,7 +61,7 @@
     width: 100%;
     margin-left: 20px;
     background-color: #134640;
-    font-size: 14rem;
+    font-size: 10rem;
     word-break: break-all;
     font-family: "dengxian";
   }
@@ -69,7 +69,7 @@
     position: absolute;
     right: 10px;
     bottom: 2px;
-    font-size: 14rem;
+    font-size: 10rem;
   }
 
   .si-img {

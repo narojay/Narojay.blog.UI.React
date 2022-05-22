@@ -62,9 +62,12 @@ const LeaveMessageItem = (props) => {
         <div className="le-item-content">
           <div className="le-item1-title">
             <div className="le-item1-name"> {leaveMesaage.nickName} </div>
-            <div className="le-item1-time">
-              {moment(leaveMesaage.creationTime).fromNow()}
-            </div>
+            {leaveMesaage.isMaster ? (
+              <div className="le-item1-name-master">站长</div>
+            ) : (
+              <></>
+            )}
+
             <div
               className="le-reply-btn"
               onClick={() => {
@@ -74,7 +77,12 @@ const LeaveMessageItem = (props) => {
               <CommentOutlined />
             </div>
           </div>
-          <div className="le-item1-content"> {leaveMesaage.content}</div>
+          <div className="le-item1-content">
+            {leaveMesaage.content}
+            <div className="le-item1-time">
+              {moment(leaveMesaage.creationTime).fromNow()}
+            </div>
+          </div>
         </div>
       </div>
       {replyStatus ? (

@@ -43,7 +43,15 @@
 
 .le-item1-name {
   font-weight: 800;
+  margin-right: 10px;
 }
+.le-item1-name-master {
+  font-weight: 800;
+  margin-right: 0px;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+}
+
 .le-item1-content {
   background-color: rgb(22, 54, 51);
   border-radius: 10px;
@@ -186,7 +194,7 @@ textarea {
   .leaveMessage {
     border-radius: 10rem;
     margin-top: 100rem;
-    padding: 15rem;
+    padding: 2rem;
   }
   .le-img {
     border-radius: 5rem;
@@ -198,8 +206,8 @@ textarea {
     user-select: none;
   }
   .le-input-info-main {
-    height: 70rem;
-    font-size: 14rem;
+    height: 60rem;
+    font-size: 10rem;
     flex-direction: column;
   }
   .le-input-info {
@@ -209,11 +217,11 @@ textarea {
   }
   .le-input-value {
     padding: 0 2rem;
-    font-size: 14rem;
+    font-size: 10rem;
     background-color: rgb(22, 54, 51);
   }
   .le-comment-box-item1 {
-    font-size: 14rem;
+    font-size: 10rem;
     width: 40rem;
     height: 20rem;
     border-radius: 1rem;
@@ -221,7 +229,7 @@ textarea {
     border-radius: 10rem;
   }
   .le-comment-box-item2 {
-    font-size: 14rem;
+    font-size: 10rem;
     width: 40rem;
     height: 20rem;
     border-radius: 10rem;
@@ -247,5 +255,40 @@ textarea {
   }
   .le-child-content {
     margin-left: 45rem;
+  }
+  .le-item1-name {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-weight: 800;
+    font-size: 10rem;
+    margin-right: 0;
+    margin-right: 10rem;
+  }
+  .le-item1-name-master {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 10rem;
+    width: 30rem;
+    margin-right: 0;
+    background-color: cornflowerblue;
+    border-radius: 10rem;
+  }
+  .le-item1-title {
+    height: 20rem;
+  }
+  .le-item1-time {
+    position: absolute;
+    right: 4rem;
+    padding-left: 0rem;
+    font-size: 10rem;
+  }
+  .le-item1-content {
+    position: relative;
+    border-radius: 10rem;
+    padding-left: 10rem;
+    font-size: 10rem;
+    padding-bottom: 15rem;
   }
 }
