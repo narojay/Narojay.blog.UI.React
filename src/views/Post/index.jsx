@@ -26,18 +26,12 @@ const Post = (props) => {
     []
   )
   useEffect(() => {
-    setisLoading(false)
     const { postId } = props.match.params
     getConfigsByProductId(postId).then((res) => {
       setData(res.data)
       setisLoading(true)
     })
-    return () => {
-      setData([])
-      setisLoading(false)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  })
   //替换所有的换行符
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 

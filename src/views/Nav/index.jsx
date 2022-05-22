@@ -12,7 +12,7 @@ const Nav = () => {
   ]
   const nacList = (
     <div>
-      <div className="nav-pc animate__animated animate__bounceInRight">
+      <div className="nav-pc">
         <NavLink to="/blog/home" className="nav-btn common-hover">
           Narojay
         </NavLink>

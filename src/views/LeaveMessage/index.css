@@ -15,9 +15,11 @@
 .leaveMessage-container {
   width: 100%;
 }
+
 .leaveMessage-box {
   width: 100%;
 }
+
 .le-img {
   border-radius: 10px;
   width: 70px;
@@ -28,6 +30,7 @@
   display: flex;
   padding: 4px;
 }
+
 .le-item-content {
   padding-left: 1rem;
   width: 100%;
@@ -45,11 +48,16 @@
   font-weight: 800;
   margin-right: 10px;
 }
+
 .le-item1-name-master {
-  font-weight: 800;
   margin-right: 0px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: 18px;
+  width: 50px;
   background-color: cornflowerblue;
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 .le-item1-content {
@@ -60,13 +68,19 @@
   overflow-wrap: break-word;
   font-size: 18px;
   word-break: break-all;
+  position: relative;
   font-family: "dengxian";
+  padding-bottom: 30px;
 }
+
 .le-item1-name:hover {
   border-radius: 10px;
   background-color: violet;
 }
+
 .le-item1-time {
+  position: absolute;
+  right: 5px;
   padding-left: 10px;
 }
 
@@ -78,9 +92,11 @@
   position: absolute;
   right: 1rem;
 }
+
 .le-reply-btn {
   cursor: pointer;
 }
+
 .le-reply:hover {
   cursor: pointer;
 }
@@ -92,6 +108,7 @@
 .le-input-box {
   display: flex;
 }
+
 .le-input-info-main {
   display: flex;
   height: 46px;
@@ -99,6 +116,7 @@
   width: 100%;
   justify-content: flex-start;
 }
+
 .le-input-info {
   display: flex;
   height: 36px;
@@ -108,6 +126,7 @@
   background-color: #275f59;
   margin-right: 10px;
 }
+
 .le-input-key {
   width: 56px;
   user-select: none;
@@ -115,6 +134,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .le-input-value {
   width: 100%;
   flex: 1;
@@ -131,12 +151,15 @@
   border-radius: 10px;
   background-color: rgb(22, 54, 51);
 }
+
 .textarea:hover {
   cursor: auto;
 }
+
 .textarea::-webkit-scrollbar {
   width: 6rem;
 }
+
 .textarea::-webkit-scrollbar-thumb {
   border-radius: 3rem;
 }
@@ -168,6 +191,7 @@ textarea {
   right: 10px;
   bottom: 0;
 }
+
 .le-comment-box-item2 {
   position: absolute;
   display: flex;
@@ -181,10 +205,12 @@ textarea {
   right: 100px;
   bottom: 0;
 }
+
 .le-comment-box-item1:hover {
   background-color: #62a4da;
   cursor: pointer;
 }
+
 .le-comment-box-item2:hover {
   background-color: #62a4da;
   cursor: pointer;
@@ -196,30 +222,36 @@ textarea {
     margin-top: 100rem;
     padding: 2rem;
   }
+
   .le-img {
     border-radius: 5rem;
     width: 35rem;
     height: 35rem;
   }
+
   .le-input-key {
     width: 35rem;
     user-select: none;
   }
+
   .le-input-info-main {
     height: 60rem;
     font-size: 10rem;
     flex-direction: column;
   }
+
   .le-input-info {
     display: flex;
     margin-bottom: 10rem;
     margin-right: 3rem;
   }
+
   .le-input-value {
     padding: 0 2rem;
     font-size: 10rem;
     background-color: rgb(22, 54, 51);
   }
+
   .le-comment-box-item1 {
     font-size: 10rem;
     width: 40rem;
@@ -228,6 +260,7 @@ textarea {
     right: 10rem;
     border-radius: 10rem;
   }
+
   .le-comment-box-item2 {
     font-size: 10rem;
     width: 40rem;
@@ -235,27 +268,34 @@ textarea {
     border-radius: 10rem;
     right: 60rem;
   }
+
   .le-comment-box {
     position: relative;
     height: 25rem;
   }
+
   .le-replay-content-box {
     padding-left: 10rem;
   }
+
   .le-item-content {
     padding-left: 10rem;
     font-size: 14rem;
   }
+
   .le-content-box {
     padding: 10rem;
   }
+
   .reply-to {
     font-size: 14rem;
     font-weight: 700;
   }
+
   .le-child-content {
     margin-left: 45rem;
   }
+
   .le-item1-name {
     display: flex;
     justify-content: center;
@@ -265,6 +305,7 @@ textarea {
     margin-right: 0;
     margin-right: 10rem;
   }
+
   .le-item1-name-master {
     display: flex;
     justify-content: center;
@@ -275,15 +316,18 @@ textarea {
     background-color: cornflowerblue;
     border-radius: 10rem;
   }
+
   .le-item1-title {
     height: 20rem;
   }
+
   .le-item1-time {
     position: absolute;
     right: 4rem;
     padding-left: 0rem;
     font-size: 10rem;
   }
+
   .le-item1-content {
     position: relative;
     border-radius: 10rem;
