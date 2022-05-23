@@ -1,8 +1,9 @@
-import { Pagination } from "antd"
+import { Divider, Pagination } from "antd"
 import React, { useEffect, useState } from "react"
 import { getLeaveMessages } from "../../utils/request"
 import "./index.css"
 import LeaveMessageItem from "./LeaveMessageItem"
+import NewLeaveMessage from "./NewLeaveMessage"
 const LeaveMessage = () => {
   const [data, setData] = useState([])
   const [loading, setloading] = useState(true)
@@ -59,8 +60,17 @@ const LeaveMessage = () => {
     return (
       <div className="leaveMessage">
         <div className="leaveMessage-box">
+          <NewLeaveMessage
+            updateLeaveMessage={() => setPage(pageDto.currentPage)}
+          />
+          <Divider plain dashed={true} className="diverclass">
+            Text
+          </Divider>
           {data.map((x) => (
-            <LeaveMessageItem leaveMesaage={x} />
+            <LeaveMessageItem
+              leaveMesaage={x}
+              updateLeaveMessage={() => setPage(pageDto.currentPage)}
+            />
           ))}
         </div>
         <div className="leaveMessage-page-box">{page}</div>

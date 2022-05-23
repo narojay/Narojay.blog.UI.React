@@ -13,7 +13,6 @@ const LeaveMessageItem = (props) => {
   const [text, settext] = useState("")
 
   const submit = () => {
-    console.log(nickName, email)
     if (!validate()) {
       return
     }
@@ -25,6 +24,8 @@ const LeaveMessageItem = (props) => {
     }).then((x) => {
       if (x) {
         message.success("回复成功！")
+        props.updateLeaveMessage()
+        setreplyStatus(false)
       } else {
         message.error("回复失败！请重试！")
       }

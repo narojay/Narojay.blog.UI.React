@@ -7,6 +7,7 @@ import "./markdownStyle.css"
 import { getConfigsByProductId } from "../../utils/request"
 import moment from "moment"
 import { withRouter } from "react-router-dom"
+import { oppose, support } from "../../utils/constant.js"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
@@ -50,8 +51,11 @@ const Post = (props) => {
           className="markdownStyle magictime slideRightReturn"
           dangerouslySetInnerHTML={{ __html: html }}
         ></div>
-        <div>
-          支持：{data.likeCount} 反对：{data.unlikeCount}
+        <div className="support-Box">
+          <div className="support-oppose-action">{support}</div>
+          <div>{data.likeCount}</div>
+          <div className="support-oppose-action">{oppose}</div>
+          <div>{data.unlikeCount}</div>
         </div>
       </div>
     </div>

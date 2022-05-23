@@ -37,7 +37,15 @@
   background-position: center;
   background-size: cover;
 }
-
+.support-Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.support-oppose-action {
+  user-select: none;
+  cursor: pointer;
+}
 @media all and (max-width: 1000px) {
   .title {
     display: flex;
