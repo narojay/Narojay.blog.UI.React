@@ -4,7 +4,10 @@ import "antd/dist/antd.css"
 import "./github-dark.css"
 import "./index.css"
 import "./markdownStyle.css"
-import { getConfigsByProductId } from "../../utils/request"
+import {
+  AddLikeOrUnlikeCountAsync,
+  getConfigsByProductId
+} from "../../utils/request"
 import moment from "moment"
 import { withRouter } from "react-router-dom"
 import { oppose, support } from "../../utils/constant.js"
@@ -32,7 +35,20 @@ const Post = (props) => {
       setData(res.data)
       setisLoading(true)
     })
-  })
+  }, [props.match.params])
+
+  const addLikeCount = () => {
+    AddLikeOrUnlikeCountAsync(data.id, 0).then((x) => {
+      data.likeCount = data.likeCount + 1
+      setData({ ...data })
+    })
+  }
+  const addUnlikeCount = () => {
+    AddLikeOrUnlikeCountAsync(data.id, 1).then((x) => {
+      data.unlikeCount = data.unlikeCount + 1
+      setData({ ...data })
+    })
+  }
   //替换所有的换行符
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
@@ -52,9 +68,13 @@ const Post = (props) => {
           dangerouslySetInnerHTML={{ __html: html }}
         ></div>
         <div className="support-Box">
-          <div className="support-oppose-action">{support}</div>
+          <div className="support-oppose-action" onClick={addLikeCount}>
+            {support}
+          </div>
           <div>{data.likeCount}</div>
-          <div className="support-oppose-action">{oppose}</div>
+          <div className="support-oppose-action" onClick={addUnlikeCount}>
+            {oppose}
+          </div>
           <div>{data.unlikeCount}</div>
         </div>
       </div>

@@ -166,3 +166,14 @@ export const GetSoliloquizedListAsync = () => {
     }
   })
 }
+export const AddLikeOrUnlikeCountAsync = (id, status) => {
+  return http
+    .post("post/like_unlike_count?id=" + id + "&status=" + status)
+    .then((x) => {
+      try {
+        return x.data
+      } catch {
+        console.log(x)
+      }
+    })
+}
