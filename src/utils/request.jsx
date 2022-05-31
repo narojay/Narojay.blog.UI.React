@@ -6,7 +6,7 @@ export function getConfigsByProductId(postId) {
   return http.get("Post/id?id=" + postId)
 }
 
-export function AddPostApi(title, postContent, label) {
+export function AddPostApi(title, postContent, label, checkTagId) {
   return http
     .post("admin/publish_post", {
       id: 0,
@@ -16,6 +16,7 @@ export function AddPostApi(title, postContent, label) {
       label: label,
       creationTime: moment().format(),
       modifyTime: moment().format(),
+      postTagDto: { tagIds: checkTagId },
       userId: 2
     })
     .then((x) => {
@@ -176,4 +177,14 @@ export const AddLikeOrUnlikeCountAsync = (id, status) => {
         console.log(x)
       }
     })
+}
+
+export const GetTagsAsync = () => {
+  return http.get("post/tags").then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
 }

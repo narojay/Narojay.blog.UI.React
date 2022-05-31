@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import PostList from "../PostList"
 import "./index.css"
 import { WechatOutlined, QqOutlined, GithubOutlined } from "@ant-design/icons"
+import TagCard from "./Tags"
 const Home = () => {
   const [state, setstate] = useState({
     currentPage: 1,
@@ -66,6 +67,7 @@ const Home = () => {
               </a>
             </div>
           </div>
+          <TagCard />
         </div>
       </div>
     </div>

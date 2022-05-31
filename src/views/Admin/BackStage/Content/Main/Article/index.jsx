@@ -98,20 +98,22 @@ const Article = (props) => {
       title: "操作",
       key: "id",
       render: (x) => (
-        <Popconfirm
-          title={
-            <>
-              确认要删除文章:<b>{x.title}</b>吗？
-            </>
-          }
-          onConfirm={() => deletePost(x.id)}
-          okText="确认"
-          cancelText="取消"
-        >
-          <Button type="primary" danger>
-            删除
-          </Button>
-        </Popconfirm>
+        <>
+          <Popconfirm
+            title={
+              <>
+                确认要删除文章:<b>{x.title}</b>吗？
+              </>
+            }
+            onConfirm={() => deletePost(x.id)}
+            okText="确认"
+            cancelText="取消"
+          >
+            <Button type="primary" danger>
+              删除
+            </Button>
+          </Popconfirm>
+        </>
       )
     }
   ]

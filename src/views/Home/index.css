@@ -24,6 +24,8 @@
   padding-right: 20px;
 }
 .home-aside {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   color: #fff;
 }

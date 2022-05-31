@@ -18,9 +18,7 @@
 
 .add-article-form {
   display: flex;
-  align-items: center;
   font-size: 25px;
 }
 .add-article-form-item {
-  flex: 1;
 }

@@ -1,0 +1,23 @@
+.tagcard {
+  width: 100%;
+  margin-top: 20px;
+  background-color: rgb(11, 24, 31);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tagcard-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(22, 54, 51);
+}
+.tagcard-item:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  user-select: none;
+}
