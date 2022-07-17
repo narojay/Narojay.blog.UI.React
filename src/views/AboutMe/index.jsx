@@ -4,15 +4,29 @@ import ReactEcharts from "echarts-for-react"
 import { getAboutMeContentAsync, getLabelStatistics } from "../../utils/request"
 import "./index.css"
 import { Switch } from "antd"
+import {
+  useGameAction,
+  useGameConnection,
+  useGameStateChange,
+  useGameStateConnect
+} from "../../utils/useGameConnection.js"
 const AboutMe = () => {
   const [state, setstate] = useState([])
   const [aboutMeContent, setaboutMeContent] = useState("")
   const [aboutme, setaboutme] = useState(true)
+
+  console.log(process.env.SIGNALR_API)
+  const { hubConnectionState, error } = useGameConnection()
+  const { invoke, loading, error1 } = useGameAction()
+  useGameStateChange()
+  useGameStateConnect()
   const my = {}
   const my1 = { color: "#696969" }
   const change = () => {
+    invoke("test")
     setaboutme(!aboutme)
   }
+
   const aboutsite = (
     <div className="aboutme-content-box">
       <ReactEcharts

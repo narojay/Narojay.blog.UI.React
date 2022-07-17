@@ -6,10 +6,10 @@ export function getConfigsByProductId(postId) {
   return http.get("Post/id?id=" + postId)
 }
 
-export function AddPostApi(title, postContent, label, checkTagId) {
+export function SavePostApi(id, title, postContent, label, checkTagId) {
   return http
     .post("admin/publish_post", {
-      id: 0,
+      id: id,
       title: title,
       content: postContent,
       author: "narojay",
@@ -20,7 +20,7 @@ export function AddPostApi(title, postContent, label, checkTagId) {
       userId: 2
     })
     .then((x) => {
-      message.success("添加成功")
+      message.success("保存成功")
     })
 }
 
@@ -31,6 +31,16 @@ export function GetPostList(pageIndex, pageSize) {
       pageSize: pageSize
     })
     .then((x) => x.data)
+}
+
+export function GetPostById(id) {
+  return http.get("post/id?id=" + id).then((x) => {
+    try {
+      return x.data
+    } catch {
+      console.log(x)
+    }
+  })
 }
 
 export function loginAsync(username, password) {

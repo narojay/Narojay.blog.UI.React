@@ -53,7 +53,7 @@ const Post = (props) => {
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
   const result = isLoading ? (
-    <div>
+    <div key={data.key}>
       <div className="title">
         <div>{data.title}</div>
         <div className="author">

@@ -16,6 +16,7 @@ import {
 } from "../../../../../../utils/request"
 import styles from "./index.module.css"
 import moment from "moment"
+import Space from "antd/lib/space"
 const Article = (props) => {
   const handleChange = (e) => {
     pagerequest.label = e
@@ -43,6 +44,10 @@ const Article = (props) => {
       }
     })
   }
+  const modifyArticle = (e) => {
+    props.history.push("/admin/addpost?articleId=" + e)
+  }
+
   const query = () => {
     setloading(true)
     const titleContent = title.current.state.value
@@ -98,7 +103,7 @@ const Article = (props) => {
       title: "操作",
       key: "id",
       render: (x) => (
-        <>
+        <Space size="middle">
           <Popconfirm
             title={
               <>
@@ -113,7 +118,10 @@ const Article = (props) => {
               删除
             </Button>
           </Popconfirm>
-        </>
+          <Button type="primary" onClick={() => modifyArticle(x.id)}>
+            修改
+          </Button>
+        </Space>
       )
     }
   ]
@@ -138,7 +146,7 @@ const Article = (props) => {
           className={styles.articlebutton}
           onChange={handleChange}
         >
-          {list.map((x, y) => (
+          {list?.map((x, y) => (
             <Option key={y} value={x}>
               {x}
             </Option>

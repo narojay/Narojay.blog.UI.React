@@ -34,7 +34,6 @@ const http = axios.create({
 
   timeout: 1000 * 60 * 3
 })
-
 http.interceptors.request.use(
   function (config) {
     if (config.headers.isLoading !== false) {

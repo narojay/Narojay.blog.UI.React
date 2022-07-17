@@ -3,32 +3,45 @@ import "../Post/github-dark.css"
 import "./index.css"
 import hljs from "highlight.js"
 import marked from "marked"
-import { AddPostApi, GetTagsAsync } from "../../utils/request"
+import { SavePostApi, GetPostById, GetTagsAsync } from "../../utils/request"
 import { Button, Form, Input, Checkbox, Row, Col } from "antd"
-const AddPost = () => {
+const AddPost = (props) => {
   const [text, setText] = useState("")
+  const [content, setcontent] = useState("")
+  const [postState, setpostState] = useState("")
   const [tags, settags] = useState([])
   const [checkTagId, setCheckTagId] = useState([])
   const [isLoading, setisLoading] = useState(false)
-  const post = useRef()
-  const title = useRef()
-  const label = useRef()
-  const OnAddPost = () => {
-    const postContent = post.current.innerText
-    const titleContent = title.current.state.value
-    const labelContent = label.current.state.value
-
-    AddPostApi(titleContent, postContent, labelContent, checkTagId)
+  const SavePost = (e) => {
+    console.log(text)
+    SavePostApi(postState?.id, e.title, text, e.label, checkTagId)
   }
   const onChange = (checkedValues) => {
-    setCheckTagId(checkedValues)
+    const result = Array.from(new Set(checkedValues))
+    setCheckTagId(result)
   }
 
   useEffect(() => {
-    GetTagsAsync().then((x) => {
-      settags(x)
-      setisLoading(true)
-    })
+    var param = new URLSearchParams(props.location.search)
+    var id = param.get("articleId")
+    if (id !== null) {
+      GetPostById(id).then((x) => {
+        setpostState(x)
+        if (x.postTagDto != null)
+          setCheckTagId(x.postTagDto.map((tt) => tt.tagId))
+        GetTagsAsync().then((x) => {
+          settags(x)
+          setisLoading(true)
+        })
+        setcontent(x.content)
+        setText(x.content)
+      })
+    } else {
+      GetTagsAsync().then((x) => {
+        settags(x)
+        setisLoading(true)
+      })
+    }
     // 配置highlight
     hljs.configure({
       tabReplace: "",
@@ -50,7 +63,7 @@ const AddPost = () => {
       tables: true, //默认为true。 允许支持表格语法。该选项要求 gfm 为true。
       breaks: true //默认为false。 允许回车换行。该选项要求 gfm 为true。
     })
-  }, [checkTagId])
+  }, [content, props.location.search])
   return isLoading ? (
     <div>
       <div className="add-article-form">
@@ -65,7 +78,7 @@ const AddPost = () => {
           initialValues={{
             remember: true
           }}
-          onFinish={OnAddPost}
+          onFinish={SavePost}
         >
           <Form.Item
             labelCol={{ span: 1, offset: 1 }}
@@ -78,24 +91,36 @@ const AddPost = () => {
             wrapperCol={{ span: 10, offset: 1 }}
             label="标题："
             name="title"
+            initialValue={postState.title}
             rules={[{ required: true, message: "标题不能为空" }]}
           >
-            <Input ref={title} className="add-article-form-item"></Input>
+            <Input
+              key={postState.title}
+              className="add-article-form-item"
+            ></Input>
           </Form.Item>
           <Form.Item
             labelCol={{ span: 1, offset: 1 }}
             wrapperCol={{ span: 10, offset: 1 }}
             label="标签:"
             name="label"
+            initialValue={postState.label}
             rules={[{ required: true, message: "标题不能为空" }]}
           >
-            <Input ref={label} className="add-article-form-item"></Input>
+            <Input
+              key={postState.label}
+              className="add-article-form-item"
+            ></Input>
           </Form.Item>
           <Form.Item
             labelCol={{ span: 1, offset: 10 }}
             wrapperCol={{ span: 15, offset: 1 }}
           >
-            <Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
+            <Checkbox.Group
+              style={{ width: "100%" }}
+              onChange={onChange}
+              defaultValue={checkTagId}
+            >
               <Row>
                 {tags.map((x) => (
                   <Col key={x.id} span={4}>
@@ -115,14 +140,15 @@ const AddPost = () => {
 
       <div className="marked">
         <div
-          ref={post}
           className="input-region markdownStyle"
           contentEditable="plaintext-only"
-          // suppressContentEditableWarning
+          suppressContentEditableWarning
           onInput={(e) => {
             setText(e.target.innerText)
           }}
-        ></div>
+        >
+          {content}
+        </div>
         <div
           className="show-region markdownStyle"
           dangerouslySetInnerHTML={{
