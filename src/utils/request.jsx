@@ -198,3 +198,17 @@ export const GetTagsAsync = () => {
     }
   })
 }
+
+export const GetPagingWebsiteEventLogAsync = (pageIndex, pageSize) => {
+  return http
+    .get(
+      "website_event_log/list?pageIndex=" + pageIndex + "&pageSize=" + pageSize
+    )
+    .then((x) => {
+      try {
+        return x.data
+      } catch {
+        console.log(x)
+      }
+    })
+}
