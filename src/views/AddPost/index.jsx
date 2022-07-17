@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "../Post/github-dark.css"
 import "./index.css"
 import hljs from "highlight.js"
