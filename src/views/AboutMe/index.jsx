@@ -6,7 +6,6 @@ import "./index.css"
 import { Switch } from "antd"
 import {
   useGameAction,
-  useGameConnection,
   useGameStateChange,
   useGameStateConnect
 } from "../../utils/useGameConnection.js"
@@ -16,8 +15,7 @@ const AboutMe = () => {
   const [aboutme, setaboutme] = useState(true)
 
   console.log(process.env.SIGNALR_API)
-  const { hubConnectionState, error } = useGameConnection()
-  const { invoke, loading, error1 } = useGameAction()
+  const { invoke } = useGameAction()
   useGameStateChange()
   useGameStateConnect()
   const my = {}
