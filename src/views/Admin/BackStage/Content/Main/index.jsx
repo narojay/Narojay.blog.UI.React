@@ -6,6 +6,7 @@ import AboutMeManage from "./AboutMeManage"
 import Article from "./Article"
 import Home from "./Home"
 import "./index.css"
+import ManageSiteTimeLine from "./ManageSiteTimeLine"
 const Main = () => {
   return (
     <div className="MainBox">
@@ -15,6 +16,7 @@ const Main = () => {
         <Route path="/admin/say" component={Say} />
         <Route path="/admin/article" component={Article} />
         <Route path="/admin/aboutmemanage" component={AboutMeManage} />
+        <Route path="/admin/sitelinetime" component={ManageSiteTimeLine} />
         {/* <Route path="/admin/msg" component={Msg} />
         <Route path="/admin/link" component={Link} />
         <Route path="/admin/show" component={Show} />

@@ -69,7 +69,7 @@ http.interceptors.response.use(
     if (response.status === 200 || response.status === 204) {
       return response.data
     } else {
-      message.error(response.message || response.desc)
+      message.error(response.data.Message)
       return Promise.reject(response)
     }
   },

@@ -47,7 +47,7 @@ const Nav = () => {
             </MyNavLink>
           </li>
           <li>
-            <MyNavLink to="/admin/log" className="funcLi">
+            <MyNavLink to="/admin/sitelinetime" className="funcLi">
               建站日志
             </MyNavLink>
           </li>

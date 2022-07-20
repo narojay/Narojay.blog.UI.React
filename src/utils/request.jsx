@@ -199,10 +199,15 @@ export const GetTagsAsync = () => {
   })
 }
 
-export const GetPagingWebsiteEventLogAsync = (pageIndex, pageSize) => {
+export const GetPagingWebsiteEventLogAsync = (pageIndex, pageSize, content) => {
   return http
     .get(
-      "website_event_log/list?pageIndex=" + pageIndex + "&pageSize=" + pageSize
+      "website_event_log/list?pageIndex=" +
+        pageIndex +
+        "&pageSize=" +
+        pageSize +
+        "&content=" +
+        content
     )
     .then((x) => {
       try {
@@ -210,5 +215,29 @@ export const GetPagingWebsiteEventLogAsync = (pageIndex, pageSize) => {
       } catch {
         console.log(x)
       }
+    })
+}
+
+export const RemoveWebsiteEventLogAsync = (id) => {
+  return http
+    .post("website_event_log/remove?id=" + id)
+    .then((x) => {
+      return x.data
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+}
+
+export const AddWebsiteEventLogAsync = (content) => {
+  return http
+    .post("website_event_log/add", {
+      content: content
+    })
+    .then((x) => {
+      return x.data
+    })
+    .catch((e) => {
+      console.log(e)
     })
 }
