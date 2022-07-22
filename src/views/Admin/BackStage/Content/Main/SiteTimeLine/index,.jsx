@@ -1,4 +1,5 @@
 import { message, Timeline } from "antd"
+import moment from "moment"
 import React, { useEffect, useRef, useState } from "react"
 import { GetPagingWebsiteEventLogAsync } from "../../../../../../utils/request"
 
@@ -21,17 +22,19 @@ const SiteTimeLine = () => {
     }
   }
   useEffect(() => {
-    GetPagingWebsiteEventLogAsync(page.pageIndex, page.pageSize).then((x) => {
-      if (page.pageIndex > 1) {
-        var c = websiteEventLogs.concat(x.data)
-        setwebsiteEventLogs([...c])
-      } else {
-        setwebsiteEventLogs([...x.data])
+    GetPagingWebsiteEventLogAsync(page.pageIndex, page.pageSize, "").then(
+      (x) => {
+        if (page.pageIndex > 1) {
+          var c = websiteEventLogs.concat(x.data)
+          setwebsiteEventLogs([...c])
+        } else {
+          setwebsiteEventLogs([...x.data])
+        }
+        if (!x.data || x.data.length === 0) {
+          message.warning("没有数据了,到底了")
+        }
       }
-      if (!x.data || x.data.length === 0) {
-        message.warning("没有数据了,到底了")
-      }
-    })
+    )
     document.addEventListener("scroll", handleOnScroll, {
       passive: true
     })
@@ -58,7 +61,7 @@ const SiteTimeLine = () => {
       <Timeline>
         {websiteEventLogs.map((x) => (
           <Timeline.Item style={style} key={x.id}>
-            {x.name}
+            {moment(x.creationTime).format("YYYY-MM-DD")}:{x.content}
           </Timeline.Item>
         ))}
       </Timeline>
