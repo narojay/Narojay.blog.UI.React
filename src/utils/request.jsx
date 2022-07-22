@@ -241,3 +241,17 @@ export const AddWebsiteEventLogAsync = (content) => {
       console.log(e)
     })
 }
+
+export const UpdateWebsiteEventLogAsync = (log) => {
+  return http
+    .post("website_event_log/update", {
+      id: log.id,
+      content: log.content
+    })
+    .then((x) => {
+      return x.data
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+}

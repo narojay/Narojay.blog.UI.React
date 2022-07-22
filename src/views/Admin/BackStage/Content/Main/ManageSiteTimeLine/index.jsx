@@ -13,7 +13,8 @@ import React, { useEffect, useRef, useState } from "react"
 import {
   AddWebsiteEventLogAsync,
   GetPagingWebsiteEventLogAsync,
-  RemoveWebsiteEventLogAsync
+  RemoveWebsiteEventLogAsync,
+  UpdateWebsiteEventLogAsync
 } from "../../../../../../utils/request"
 
 const ManageSiteTimeLine = () => {
@@ -21,7 +22,9 @@ const ManageSiteTimeLine = () => {
   const [websiteEventLog, setwebsiteEventLog] = useState([])
   const [isLoading, setisLoading] = useState(false)
   const [visible, setvisible] = useState(false)
+  const [modifyVisible, setmodifyVisible] = useState(false)
   const content = useRef()
+  const [modifyContent, setmodifyContent] = useState({ id: 0, content: "" })
   const formRef = useRef()
   const deleteWebsiteEventLog = (id) => {
     RemoveWebsiteEventLogAsync(id).then((e) => {
@@ -36,19 +39,44 @@ const ManageSiteTimeLine = () => {
       }
     })
   }
+  const modifyContentAsync = (x) => {
+    console.log(x)
+    setmodifyVisible(true)
+    setmodifyContent({ id: x.id, content: x.content })
+  }
+
+  const handleModifyCancel = () => {
+    setmodifyVisible(false)
+    setmodifyContent({ id: 0, content: "" })
+  }
   const onFinish1 = (e) => {
-    AddWebsiteEventLogAsync(e.content).then((x) => {
-      if (x === true) {
-        GetPagingWebsiteEventLogAsync(
-          pageDto.pageindex,
-          pageDto.pageSize,
-          content.current.state.value ?? ""
-        ).then((x) => {
-          setwebsiteEventLog(x.data)
-          setvisible(false)
-        })
-      }
-    })
+    if (e.id) {
+      UpdateWebsiteEventLogAsync(e).then((x) => {
+        if (x === true) {
+          GetPagingWebsiteEventLogAsync(
+            pageDto.pageindex,
+            pageDto.pageSize,
+            content.current.state.value ?? ""
+          ).then((x) => {
+            setwebsiteEventLog(x.data)
+            setmodifyVisible(false)
+          })
+        }
+      })
+    } else {
+      AddWebsiteEventLogAsync(e.content).then((x) => {
+        if (x === true) {
+          GetPagingWebsiteEventLogAsync(
+            pageDto.pageindex,
+            pageDto.pageSize,
+            content.current.state.value ?? ""
+          ).then((x) => {
+            setwebsiteEventLog(x.data)
+            setvisible(false)
+          })
+        }
+      })
+    }
   }
   const onFinish = () => {
     formRef.current.submit()
@@ -89,7 +117,7 @@ const ManageSiteTimeLine = () => {
       render: (x) => <strong>{x}</strong>
     },
     {
-      title: "标题",
+      title: "日志内容",
       dataIndex: "content",
       key: "id",
       render: (x) => <strong>{x}</strong>
@@ -119,7 +147,7 @@ const ManageSiteTimeLine = () => {
               删除
             </Button>
           </Popconfirm>
-          <Button type="primary" onClick={() => {}}>
+          <Button type="primary" onClick={() => modifyContentAsync(x)}>
             修改
           </Button>
         </Space>
@@ -145,16 +173,57 @@ const ManageSiteTimeLine = () => {
       </Form>
     )
   }
+
+  const modifyForm = () => {
+    return (
+      <Form
+        name="changePasswordForm"
+        onFinish={onFinish1}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        ref={formRef}
+      >
+        <Form.Item label="Id" name="id" initialValue={modifyContent.id}>
+          <Input disabled={true} />
+        </Form.Item>
+        <Form.Item
+          label="修改建站日志内容"
+          name="content"
+          initialValue={modifyContent.content}
+          rules={[{ required: true }]}
+        >
+          <Input.TextArea />
+        </Form.Item>
+      </Form>
+    )
+  }
   return (
     <div>
-      <Modal
-        title="更改密码"
-        visible={visible}
-        onOk={onFinish}
-        onCancel={handleCancel}
-      >
-        {changePasswordForm()}
-      </Modal>
+      <>
+        {visible && (
+          <Modal
+            title="新增建站日志"
+            visible={visible}
+            onOk={onFinish}
+            onCancel={handleCancel}
+          >
+            {changePasswordForm()}
+          </Modal>
+        )}
+      </>
+      <>
+        {modifyVisible && (
+          <Modal
+            title="修改建站日志"
+            visible={modifyVisible}
+            onOk={onFinish}
+            onCancel={handleModifyCancel}
+          >
+            {modifyForm()}
+          </Modal>
+        )}
+      </>
+
       <div>
         <Input placeholder="搜索建站日志内容" ref={content} />
         <Tooltip title="搜索">
