@@ -45,19 +45,7 @@ const SiteTimeLine = () => {
   }, [page.pageIndex, page.pageSize])
 
   return (
-    <div
-      ref={scrollRef}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "100px",
-        backgroundColor: "rgb(11, 24, 31)",
-        minHeight: "100vh",
-        borderRadius: "20px",
-        fontSize: "40px"
-      }}
-    >
+    <div className="leaveMessage" ref={scrollRef}>
       <Timeline>
         {websiteEventLogs.map((x) => (
           <Timeline.Item style={style} key={x.id}>
