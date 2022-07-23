@@ -13,7 +13,7 @@ export default class AuthRoute extends Component {
     return (
       <Switch>
         <Route path="/admin" component={Admin} />
-        <Route path="/blog">
+        <Route path="/">
           <Nav />
           <Content />
           <Footer />
@@ -30,7 +30,7 @@ export default class AuthRoute extends Component {
           </BackTop>
           <ScrollToTop />
         </Route>
-        <Redirect to="/blog/home" />
+        <Redirect to="/" />
       </Switch>
     )
   }

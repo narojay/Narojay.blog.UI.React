@@ -9,10 +9,9 @@ const Notice = () => {
     getadminNotice().then((x) => {
       setnotice(x)
     })
-  }, [])
+  }, [notice])
   return (
     <div className="noticebox">
-      <span className="test">公告</span>
       <span className="content">{notice}</span>
     </div>
   )

@@ -4,16 +4,16 @@ import { NavLink, withRouter } from "react-router-dom"
 
 const Nav = () => {
   const navItem = [
-    { id: 0, name: "文章", to: "/blog/posts" },
-    { id: 1, name: "说说", to: "/blog/soliloquize" },
-    { id: 2, name: "留言板", to: "/blog/leavemessage" },
-    { id: 3, name: "建站", to: "/blog/sitetimeline" },
-    { id: 4, name: "关于我", to: "/blog/aboutme" }
+    { id: 0, name: "文章", to: "/posts" },
+    { id: 1, name: "说说", to: "/soliloquize" },
+    { id: 2, name: "留言板", to: "/leavemessage" },
+    { id: 3, name: "建站", to: "/sitetimeline" },
+    { id: 4, name: "关于我", to: "/aboutme" }
   ]
   const nacList = (
     <div>
       <div className="nav-pc">
-        <NavLink to="/blog/home" className="nav-btn common-hover">
+        <NavLink to="/" className="nav-btn common-hover">
           Narojay
         </NavLink>
         {navItem.map((item) => (
