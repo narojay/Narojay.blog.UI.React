@@ -7,7 +7,7 @@ import Post from "../Post"
 import Home from "../Home"
 import AddPost from "../AddPost"
 import "./index.css"
-import SiteTimeLine from "../Admin/BackStage/Content/Main/SiteTimeLine/index,"
+import SiteTimeLine from "../Admin/BackStage/Content/Main/SiteTimeLine/index"
 import Soliloquize from "../Soliloquize"
 
 const Content = (props) => {
