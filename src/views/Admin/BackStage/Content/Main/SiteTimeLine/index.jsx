@@ -1,3 +1,4 @@
+import { LoadingOutlined } from "@ant-design/icons"
 import { message, Spin, Timeline } from "antd"
 import moment from "moment"
 import React, { useEffect, useRef, useState } from "react"
@@ -83,7 +84,12 @@ const SiteTimeLine = () => {
     <div className="leaveMessage">
       {websiteEventLogs.length === 0 ? (
         <div style={{ height: "30px" }}>
-          <Spin size="large" spinning={loading} tip="加载中..."></Spin>
+          <Spin
+            indicator={<LoadingOutlined />}
+            size="large"
+            spinning={loading}
+            tip="加载中..."
+          ></Spin>
         </div>
       ) : (
         <>
@@ -96,7 +102,12 @@ const SiteTimeLine = () => {
           </Timeline>
           {page.pageIndex >= 1 ? (
             <div style={{ height: "30px" }}>
-              <Spin size="large" spinning={loading} tip="加载中..."></Spin>
+              <Spin
+                indicator={<LoadingOutlined />}
+                size="large"
+                spinning={loading}
+                tip="加载中..."
+              ></Spin>
             </div>
           ) : (
             <></>
