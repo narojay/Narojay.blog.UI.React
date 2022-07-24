@@ -100,18 +100,14 @@ const SiteTimeLine = () => {
               </Timeline.Item>
             ))}
           </Timeline>
-          {page.pageIndex >= 1 ? (
-            <div style={{ height: "30px" }}>
-              <Spin
-                indicator={<LoadingOutlined />}
-                size="large"
-                spinning={loading}
-                tip="加载中..."
-              ></Spin>
-            </div>
-          ) : (
-            <></>
-          )}
+          <div style={{ height: "30px" }}>
+            <Spin
+              indicator={<LoadingOutlined />}
+              size="large"
+              spinning={loading}
+              tip="加载中..."
+            ></Spin>
+          </div>
         </>
       )}
     </div>
