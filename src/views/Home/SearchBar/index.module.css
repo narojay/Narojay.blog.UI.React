@@ -5,11 +5,12 @@ em {
 div {
   font-size: 20px;
 }
-.ant-select-selector {
+:global(.ant-select-selector) {
   background-color: transparent !important;
   box-shadow: 0 0 2px rgba(132, 63, 255, 1) !important;
   width: 300px !important;
   height: 100px !important;
   border-radius: 30px !important;
   color: antiquewhite;
+  border: 2px cadetblue !important;
 }

@@ -3,11 +3,11 @@ import { Option } from "antd/lib/mentions"
 import React, { useEffect, useState } from "react"
 import { withRouter } from "react-router-dom"
 import { FuzzySearchPostAsync } from "../../../utils/request"
-import "./index.css"
+import styles from "./index.module.css"
 
 const SearchBar = (props) => {
   const [data, setData] = useState([])
-  const [result, setResult] = useState("")
+  const [result, setResult] = useState()
   const [value, setValue] = useState("")
   useEffect(() => {
     if (!value) {
@@ -39,12 +39,13 @@ const SearchBar = (props) => {
     <>
       <Select
         showSearch
+        className={styles}
         onSelect={(e) => {
           const a = JSON.parse(e)
           props.history.push("post/" + a.id)
         }}
         allowClear
-        placeholder={"请输入搜索内容"}
+        placeholder={"查点啥呗？"}
         value={result}
         defaultActiveFirstOption={true}
         showArrow={false}
