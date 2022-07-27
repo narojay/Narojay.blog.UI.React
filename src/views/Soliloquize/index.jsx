@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Reveal } from "react-reveal"
 import { GetSoliloquizedListAsync } from "../../utils/request"
 // import { useLazyImg } from "../../utils/hooks/useLazyImg"
 import "./index.css"
@@ -21,19 +22,21 @@ const Soliloquize = () => {
   return isLoading ? (
     <div className="soliloquize-box theme-color">
       {soliloquizes.map((x) => (
-        <div key={x.id} className="soliloquize-item">
-          <div>
-            <img
-              className="si-img"
-              src={"https://cdn.narojay.site/14018.gif"}
-              alt=""
-            />
+        <Reveal>
+          <div key={x.id} className="soliloquize-item">
+            <div>
+              <img
+                className="si-img"
+                src={"https://cdn.narojay.site/14018.gif"}
+                alt=""
+              />
+            </div>
+            <div className="si-content">
+              <div>{x.content}</div>
+              <div className="si-creationtime">{x.creationTime}</div>
+            </div>
           </div>
-          <div className="si-content">
-            <div>{x.content}</div>
-            <div className="si-creationtime">{x.creationTime}</div>
-          </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   ) : (

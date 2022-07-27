@@ -1,5 +1,6 @@
 import { Divider, Pagination } from "antd"
 import React, { useEffect, useState } from "react"
+import { Reveal } from "react-reveal"
 import { getLeaveMessages } from "../../utils/request"
 import "./index.css"
 import LeaveMessageItem from "./LeaveMessageItem"
@@ -58,23 +59,25 @@ const LeaveMessage = () => {
     return <div></div>
   } else {
     return (
-      <div className="leaveMessage">
-        <div className="leaveMessage-box">
-          <NewLeaveMessage
-            updateLeaveMessage={() => setPage(pageDto.currentPage)}
-          />
-          <Divider plain dashed={true} className="diverclass">
-            Text
-          </Divider>
-          {data.map((x) => (
-            <LeaveMessageItem
-              leaveMesaage={x}
+      <Reveal>
+        <div className="leaveMessage">
+          <div className="leaveMessage-box">
+            <NewLeaveMessage
               updateLeaveMessage={() => setPage(pageDto.currentPage)}
             />
-          ))}
+            <Divider plain dashed={true} className="diverclass">
+              Text
+            </Divider>
+            {data.map((x) => (
+              <LeaveMessageItem
+                leaveMesaage={x}
+                updateLeaveMessage={() => setPage(pageDto.currentPage)}
+              />
+            ))}
+          </div>
+          <div className="leaveMessage-page-box">{page}</div>
         </div>
-        <div className="leaveMessage-page-box">{page}</div>
-      </div>
+      </Reveal>
     )
   }
 }

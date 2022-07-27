@@ -11,6 +11,7 @@ import {
 import moment from "moment"
 import { withRouter } from "react-router-dom"
 import { oppose, support } from "../../utils/constant.js"
+import { Reveal } from "react-reveal"
 const Post = (props) => {
   const [isLoading, setisLoading] = useState(false)
   const [data, setData] = useState(
@@ -53,36 +54,41 @@ const Post = (props) => {
   let html = marked(data.content).replace(/<pre>/g, "<pre id='hljs'>")
 
   const result = isLoading ? (
-    <div key={data.key}>
-      <div className="title">
-        <div>{data.title}</div>
-        <div className="author">
-          作者：{data.author} 发布时间:
-          {moment(data.creationTime).format("YYYY-MM-DD")}{" "}
+    <Reveal>
+      <div key={data.key}>
+        <div className="title">
+          <div>{data.title}</div>
+          <div className="author">
+            作者：{data.author} 发布时间:
+            {moment(data.creationTime).format("YYYY-MM-DD")}{" "}
+          </div>
+        </div>
+        <div className="standard-page-box theme-color ">
+          <div
+            className="markdownStyle magictime slideRightReturn"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
+          <div className="support-Box">
+            <div className="support-oppose-action" onClick={addLikeCount}>
+              {support}
+            </div>
+            <div>{data.likeCount}</div>
+            <div className="support-oppose-action" onClick={addUnlikeCount}>
+              {oppose}
+            </div>
+            <div>{data.unlikeCount}</div>
+          </div>
         </div>
       </div>
-
-      <div className="standard-page-box theme-color ">
-        <div
-          className="markdownStyle magictime slideRightReturn"
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
-        <div className="support-Box">
-          <div className="support-oppose-action" onClick={addLikeCount}>
-            {support}
-          </div>
-          <div>{data.likeCount}</div>
-          <div className="support-oppose-action" onClick={addUnlikeCount}>
-            {oppose}
-          </div>
-          <div>{data.unlikeCount}</div>
-        </div>
-      </div>
-    </div>
+    </Reveal>
   ) : (
     <></>
   )
-  return result
+  return (
+    <Reveal effect="fadeInUp" delay={100}>
+      {result}
+    </Reveal>
+  )
 }
 
 export default withRouter(Post)

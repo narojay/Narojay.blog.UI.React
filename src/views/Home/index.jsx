@@ -39,11 +39,7 @@ const Home = () => {
   return (
     <div>
       <div className="home-top-img">
-        <Reveal effect="fadeInUp">
-          <div key={1}>
-            <SearchBar />
-          </div>
-        </Reveal>
+        <SearchBar />
       </div>
       <div className="home-body">
         <div className="home-main">

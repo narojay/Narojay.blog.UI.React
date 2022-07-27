@@ -1,6 +1,7 @@
 import { Select } from "antd"
 import { Option } from "antd/lib/mentions"
 import React, { useEffect, useState } from "react"
+import { Fade } from "react-reveal"
 import { withRouter } from "react-router-dom"
 import { FuzzySearchPostAsync } from "../../../utils/request"
 import styles from "./index.module.css"
@@ -37,25 +38,27 @@ const SearchBar = (props) => {
   }
   return (
     <>
-      <Select
-        showSearch
-        className={styles}
-        onSelect={(e) => {
-          const a = JSON.parse(e)
-          props.history.push("post/" + a.id)
-        }}
-        allowClear
-        placeholder={"查点啥呗？"}
-        value={result}
-        defaultActiveFirstOption={true}
-        showArrow={false}
-        filterOption={false}
-        onSearch={handleSearch}
-        onChange={handleChange}
-        notFoundContent={"真没找到！"}
-      >
-        {options}
-      </Select>
+      <Fade left>
+        <Select
+          showSearch
+          className={styles}
+          onSelect={(e) => {
+            const a = JSON.parse(e)
+            props.history.push("post/" + a.id)
+          }}
+          allowClear
+          placeholder={"查点啥呗？"}
+          value={result}
+          defaultActiveFirstOption={true}
+          showArrow={false}
+          filterOption={false}
+          onSearch={handleSearch}
+          onChange={handleChange}
+          notFoundContent={"真没找到！"}
+        >
+          {options}
+        </Select>
+      </Fade>
     </>
   )
 }

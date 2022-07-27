@@ -2,6 +2,7 @@ import { LoadingOutlined } from "@ant-design/icons"
 import { message, Spin, Timeline } from "antd"
 import moment from "moment"
 import React, { useEffect, useRef, useState } from "react"
+import { Reveal } from "react-reveal"
 import { GetPagingWebsiteEventLogAsync } from "../../../../../../utils/request"
 
 const SiteTimeLine = () => {
@@ -94,12 +95,15 @@ const SiteTimeLine = () => {
       ) : (
         <>
           <Timeline>
-            {websiteEventLogs.map((x) => (
-              <Timeline.Item style={style} key={x.id}>
-                {moment(x.creationTime).format("YYYY-MM-DD")}:{x.content}
-              </Timeline.Item>
-            ))}
+            <Reveal>
+              {websiteEventLogs.map((x) => (
+                <Timeline.Item style={style} key={x.id}>
+                  {moment(x.creationTime).format("YYYY-MM-DD")}:{x.content}
+                </Timeline.Item>
+              ))}
+            </Reveal>
           </Timeline>
+
           <div style={{ height: "30px" }}>
             <Spin
               indicator={<LoadingOutlined />}

@@ -67,7 +67,7 @@ const PostList = (props) => {
   ) : (
     <div className="box">
       <div>
-        <Reveal type={"alpha"} forcedReplay={true} delay={150} interval={250}>
+        <Reveal>
           {posts.map((x) => (
             <div key={x.id}>
               <div
