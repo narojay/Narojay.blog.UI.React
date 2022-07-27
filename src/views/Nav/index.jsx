@@ -1,7 +1,6 @@
 import "./index.css"
 import React from "react"
 import { NavLink, withRouter } from "react-router-dom"
-import QueueAnim from "rc-queue-anim"
 
 const Nav = () => {
   const navItem = [
@@ -13,18 +12,16 @@ const Nav = () => {
   ]
   const nacList = (
     <div>
-      <QueueAnim type={"top"} duration={1000}>
-        <div key={1} className="nav-pc">
-          <NavLink key={-1} to="/" className="nav-btn common-hover">
-            Narojay
+      <div key={1} className="nav-pc">
+        <NavLink key={-1} to="/" className="nav-btn common-hover">
+          Narojay
+        </NavLink>
+        {navItem.map((item, index) => (
+          <NavLink className="nav-btn" to={item.to} key={item.id}>
+            {item.name}
           </NavLink>
-          {navItem.map((item, index) => (
-            <NavLink className="nav-btn" to={item.to} key={item.id}>
-              {item.name}
-            </NavLink>
-          ))}
-        </div>
-      </QueueAnim>
+        ))}
+      </div>
     </div>
   )
   return nacList
