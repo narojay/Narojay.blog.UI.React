@@ -13,7 +13,10 @@ div {
   border-radius: 30px !important;
   color: antiquewhite;
   border: 2px cadetblue !important;
+<<<<<<< HEAD:src/views/Home/SearchBar/index.module.css
 }
 :global(.ant-select-selector:hover) {
   box-shadow: 0 0 10px rgba(132, 63, 255, 1) !important;
+=======
+>>>>>>> a6ad7dcfa0a1f47d96402bb7abe243f461cbd872:src/views/Home/SearchBar/index.css
 }
