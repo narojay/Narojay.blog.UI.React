@@ -1,6 +1,7 @@
 import "./index.css"
 import React from "react"
 import { NavLink, withRouter } from "react-router-dom"
+import { Fade } from "react-reveal"
 
 const Nav = () => {
   const navItem = [
@@ -12,16 +13,18 @@ const Nav = () => {
   ]
   const nacList = (
     <div>
-      <div key={1} className="nav-pc">
-        <NavLink key={-1} to="/" className="nav-btn common-hover">
-          Narojay
-        </NavLink>
-        {navItem.map((item, index) => (
-          <NavLink className="nav-btn" to={item.to} key={item.id}>
-            {item.name}
+      <Fade top>
+        <div key={1} className="nav-pc">
+          <NavLink key={-1} to="/" className="nav-btn common-hover">
+            Narojay
           </NavLink>
-        ))}
-      </div>
+          {navItem.map((item) => (
+            <NavLink className="nav-btn" to={item.to} key={item.id}>
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+      </Fade>
     </div>
   )
   return nacList

@@ -59,25 +59,25 @@ const LeaveMessage = () => {
     return <div></div>
   } else {
     return (
-      <Reveal>
-        <div className="leaveMessage">
-          <div className="leaveMessage-box">
-            <NewLeaveMessage
-              updateLeaveMessage={() => setPage(pageDto.currentPage)}
-            />
-            <Divider plain dashed={true} className="diverclass">
-              Text
-            </Divider>
-            {data.map((x) => (
+      <div className="leaveMessage">
+        <div className="leaveMessage-box">
+          <NewLeaveMessage
+            updateLeaveMessage={() => setPage(pageDto.currentPage)}
+          />
+          <Divider plain dashed={true} className="diverclass">
+            Text
+          </Divider>
+          {data.map((x) => (
+            <Reveal>
               <LeaveMessageItem
                 leaveMesaage={x}
                 updateLeaveMessage={() => setPage(pageDto.currentPage)}
               />
-            ))}
-          </div>
-          <div className="leaveMessage-page-box">{page}</div>
+            </Reveal>
+          ))}
         </div>
-      </Reveal>
+        <div className="leaveMessage-page-box">{page}</div>
+      </div>
     )
   }
 }
