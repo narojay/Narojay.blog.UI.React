@@ -14,3 +14,6 @@ div {
   color: antiquewhite;
   border: 2px cadetblue !important;
 }
+:global(.ant-select-selector:hover) {
+  box-shadow: 0 0 10px rgba(132, 63, 255, 1) !important;
+}
