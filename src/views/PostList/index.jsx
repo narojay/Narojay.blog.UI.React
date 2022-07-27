@@ -67,7 +67,12 @@ const PostList = (props) => {
   ) : (
     <div className="box">
       <div>
-        <QueueAnim type={"alpha"} forcedReplay={true}>
+        <QueueAnim
+          type={"alpha"}
+          forcedReplay={true}
+          delay={150}
+          interval={250}
+        >
           {posts.map((x) => (
             <div key={x.id}>
               <div

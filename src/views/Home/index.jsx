@@ -5,6 +5,7 @@ import "./index.css"
 import { WechatOutlined, QqOutlined, GithubOutlined } from "@ant-design/icons"
 import TagCard from "./Tags"
 import SearchBar from "./SearchBar"
+import QueueAnim from "rc-queue-anim"
 const Home = () => {
   const [state, setstate] = useState({
     currentPage: 1,
@@ -38,7 +39,11 @@ const Home = () => {
   return (
     <div>
       <div className="home-top-img">
-        <SearchBar />
+        <QueueAnim>
+          <div key={1}>
+            <SearchBar />
+          </div>
+        </QueueAnim>
       </div>
       <div className="home-body">
         <div className="home-main">
@@ -49,23 +54,26 @@ const Home = () => {
           />
         </div>
         <div className="home-aside">
-          <div className="myname theme-color">
-            <div className="card-box">
-              <Popover content={WX} overlayClassName="social-btn-card">
-                <WechatOutlined className="cardstyle" />
-              </Popover>
-              <Popover content={QQ} overlayClassName="social-btn-card">
-                <QqOutlined className="cardstyle" />
-              </Popover>
-              <a
-                href="https://github.com/narojay"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubOutlined className="cardstyle" />
-              </a>
+          <QueueAnim type={"left"} delay={300}>
+            <div key={999} className="myname theme-color">
+              <div className="card-box">
+                <Popover content={WX} overlayClassName="social-btn-card">
+                  <WechatOutlined className="cardstyle" />
+                </Popover>
+                <Popover content={QQ} overlayClassName="social-btn-card">
+                  <QqOutlined className="cardstyle" />
+                </Popover>
+                <a
+                  href="https://github.com/narojay"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GithubOutlined className="cardstyle" />
+                </a>
+              </div>
             </div>
-          </div>
+          </QueueAnim>
+
           <TagCard />
         </div>
       </div>
