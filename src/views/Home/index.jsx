@@ -5,7 +5,7 @@ import "./index.css"
 import { WechatOutlined, QqOutlined, GithubOutlined } from "@ant-design/icons"
 import TagCard from "./Tags"
 import SearchBar from "./SearchBar"
-import QueueAnim from "rc-queue-anim"
+import { Reveal } from "react-reveal"
 const Home = () => {
   const [state, setstate] = useState({
     currentPage: 1,
@@ -39,11 +39,11 @@ const Home = () => {
   return (
     <div>
       <div className="home-top-img">
-        <QueueAnim>
+        <Reveal effect="fadeInUp">
           <div key={1}>
             <SearchBar />
           </div>
-        </QueueAnim>
+        </Reveal>
       </div>
       <div className="home-body">
         <div className="home-main">
@@ -54,7 +54,7 @@ const Home = () => {
           />
         </div>
         <div className="home-aside">
-          <QueueAnim type={"left"} delay={300}>
+          <Reveal type={"left"} delay={300}>
             <div key={999} className="myname theme-color">
               <div className="card-box">
                 <Popover content={WX} overlayClassName="social-btn-card">
@@ -72,7 +72,7 @@ const Home = () => {
                 </a>
               </div>
             </div>
-          </QueueAnim>
+          </Reveal>
 
           <TagCard />
         </div>

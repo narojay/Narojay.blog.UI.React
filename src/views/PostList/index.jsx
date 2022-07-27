@@ -5,7 +5,7 @@ import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
-import QueueAnim from "rc-queue-anim"
+import { Reveal } from "react-reveal"
 const PostList = (props) => {
   const isCancelled = React.useRef(true)
   const [state, setstate] = useState({
@@ -67,12 +67,7 @@ const PostList = (props) => {
   ) : (
     <div className="box">
       <div>
-        <QueueAnim
-          type={"alpha"}
-          forcedReplay={true}
-          delay={150}
-          interval={250}
-        >
+        <Reveal type={"alpha"} forcedReplay={true} delay={150} interval={250}>
           {posts.map((x) => (
             <div key={x.id}>
               <div
@@ -91,7 +86,7 @@ const PostList = (props) => {
               </div>
             </div>
           ))}
-        </QueueAnim>
+        </Reveal>
       </div>
 
       {state.totalCount ? page : <></>}
