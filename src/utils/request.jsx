@@ -255,3 +255,14 @@ export const UpdateWebsiteEventLogAsync = (log) => {
       console.log(e)
     })
 }
+
+export const FuzzySearchPostAsync = (content) => {
+  return http
+    .get("post/search?content=" + content)
+    .then((x) => {
+      return x.data
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+}
