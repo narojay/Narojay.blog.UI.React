@@ -75,12 +75,18 @@ const PostList = (props) => {
                 className="article-item theme-color"
               >
                 <div className="article-item-info">
-                  <div className="article-item-title">{x.title}</div>
+                  <Fade top cascade>
+                    <div className="article-item-title">{x.title}</div>
+                  </Fade>
                   <div className="article-item-info">
-                    <div className="tag-right">{x.label}</div>
-                    <div className="tag-left">
-                      {moment(x.creationTime).format("YYYY-MM-DD")}
-                    </div>
+                    <Fade right cascade>
+                      <div className="tag-right">{x.label}</div>
+                    </Fade>
+                    <Fade left cascade>
+                      <div className="tag-left">
+                        {moment(x.creationTime).format("YYYY-MM-DD")}
+                      </div>
+                    </Fade>
                   </div>
                 </div>
               </div>
@@ -89,7 +95,7 @@ const PostList = (props) => {
         </Reveal>
       </div>
 
-      {state.totalCount ? <Fade bottom> {page}</Fade> : <></>}
+      {state.totalCount ? <Fade top> {page}</Fade> : <></>}
     </div>
   )
   return list
