@@ -5,15 +5,45 @@ em {
 div {
   font-size: 20px;
 }
-:global(.ant-select-selector) {
+.search-bar-box {
+}
+
+:global(.search-bar-box .ant-select-selector) {
   background-color: transparent !important;
-  box-shadow: 0 0 2px rgba(132, 63, 255, 1) !important;
+  box-shadow: 0 0 2px rgb(7, 1, 18) !important;
   width: 300px !important;
   height: 100px !important;
   border-radius: 30px !important;
-  color: antiquewhite;
-  border: 2px cadetblue !important;
+  color: rgb(234, 242, 243) !important;
+  font-size: 25px;
+  border: 0 transparent !important;
 }
-:global(.ant-select-selector:hover) {
-  box-shadow: 0 0 10px rgba(132, 63, 255, 1) !important;
+:global(.search-bar-box .ant-select-selector:hover) {
+  box-shadow: 0 0 10px rgb(2, 3, 0) !important;
 }
+
+:global(.search-bar-box .ant-select-selection-placeholder) {
+  color: rgb(234, 242, 243) !important;
+}
+:global(.ant-select-item-option-active:not(.ant-select-item-option-disabled)) {
+  /* background-color: cadetblue !important;
+  border-radius: 30px; */
+}
+:global(.select-down
+    .ant-select-item
+    .ant-select-item-option
+    .custom-option
+    .ant-select-item-option-active) {
+  background-color: cadetblue !important;
+}
+
+/* :global(.select-down
+    .ant-select-item-option-active:not(.ant-select-item-option-disabled)) {
+  background-color: cadetblue !important;
+}
+:global(.select-down .ant-select-item-option-content:hover) {
+  background-color: red !important;
+}
+.select-down {
+  background-color: #fff !important;
+} */

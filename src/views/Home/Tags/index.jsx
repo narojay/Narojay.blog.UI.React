@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Reveal } from "react-reveal"
+import { Fade } from "react-reveal"
 import { GetTagsAsync } from "../../../utils/request"
 import "./index.css"
 const TagCard = () => {
@@ -11,7 +11,7 @@ const TagCard = () => {
   }, [])
 
   return (
-    <Reveal delay={400} type={"right"}>
+    <Fade right>
       <div key={998} className="tagcard">
         {tags.map((x) => (
           <div className="tagcard-item" key={x.id}>
@@ -19,7 +19,7 @@ const TagCard = () => {
           </div>
         ))}
       </div>
-    </Reveal>
+    </Fade>
   )
 }
 

@@ -5,7 +5,7 @@ import "animate.css/animate.min.css"
 import { withRouter } from "react-router-dom"
 import { Pagination } from "antd"
 import moment from "moment"
-import { Reveal } from "react-reveal"
+import { Fade, Reveal } from "react-reveal"
 const PostList = (props) => {
   const isCancelled = React.useRef(true)
   const [state, setstate] = useState({
@@ -89,7 +89,7 @@ const PostList = (props) => {
         </Reveal>
       </div>
 
-      {state.totalCount ? page : <></>}
+      {state.totalCount ? <Fade bottom> {page}</Fade> : <></>}
     </div>
   )
   return list
