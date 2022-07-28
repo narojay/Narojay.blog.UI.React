@@ -25,3 +25,8 @@ body {
 html {
   background-color: #0b0a06;
 }
+#nprogress .bar {
+  background: rgb(11, 24, 31) !important;
+  height: 3px;
+  border-radius: 20px;
+}
