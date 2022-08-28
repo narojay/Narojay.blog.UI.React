@@ -78,17 +78,15 @@ const PostList = (props) => {
                   <Fade top cascade>
                     <div className="article-item-title">{x.title}</div>
                   </Fade>
-                  <div className="article-item-info">
-                    <Fade right cascade>
-                      <div className="tag-right">{x.label}</div>
-                    </Fade>
-                    <Fade left cascade>
-                      <div className="tag-left">
-                        {moment(x.creationTime).format("YYYY-MM-DD")}
-                      </div>
-                    </Fade>
-                  </div>
                 </div>
+
+                <div className="tag-right">{x.label}</div>
+
+                <Fade left cascade>
+                  <div className="tag-left">
+                    {moment(x.creationTime).format("YYYY-MM-DD")}
+                  </div>
+                </Fade>
               </div>
             </div>
           ))}

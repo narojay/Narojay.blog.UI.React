@@ -91,6 +91,7 @@
     flex: 3;
   }
   .home-aside {
+    margin-top: 30px;
     flex: 1;
   }
 }
